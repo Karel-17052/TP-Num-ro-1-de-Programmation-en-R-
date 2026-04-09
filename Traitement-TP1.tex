@@ -1,0 +1,272 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+  11pt,
+]{article}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp} 
+\usepackage{mathptmx}
+\usepackage[]{microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc}
+\usepackage{etoolbox}
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{enumitem} 
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{tabularx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+% --- PACKAGES POUR LE DESIGN ---
+\usepackage[dvipsnames, svgnames, x11names]{xcolor} % Pour les couleurs comme MidnightBlue
+\usepackage{tikz}             % Le moteur de dessin
+\usetikzlibrary{shapes.geometric, arrows, calc} % Extensions pour les formes et calculs de positions
+\usepackage{graphicx}         % Pour inclure les logos (.png, .jpg)
+\usepackage{geometry}         % Pour gérer les marges de la page
+\usepackage{anyfontsize}      % Pour ajuster la taille des polices librement
+% --- DÉFINITION DES COULEURS ---
+% Si "deepblue" n'est pas reconnu, définis-le ici :
+\definecolor{deepblue}{RGB}{0,40,80}
+\definecolor{MidnightBlue}{RGB}{25,25,112}
+\usepackage{tabu} 
+\usepackage[Conny]{fncychap}
+\usepackage{setspace}
+\usepackage{MnSymbol}
+\usepackage[most, many]{tcolorbox}
+\definecolor{lightgreen}{rgb}{0.56, 0.93, 0.56}  % Définition de la couleur lightgreen
+\usepackage{xcolor}
+\definecolor{lightblue}{rgb}{0.68, 0.85, 0.90} 
+\definecolor{deepblue}{RGB}{10, 60, 90}
+\definecolor{MidnightBlue}{RGB}{25, 25, 112}
+\definecolor{RoyalBlue}{RGB}{65, 105, 225}
+\definecolor{darkblue}{HTML}{1F3864}
+\definecolor{steelblue}{RGB}{70,130,180}
+\definecolor{darkred}{RGB}{139,0,0}
+\definecolor{ForestGreen}{RGB}{34,139,34}
+\definecolor{orange}{RGB}{255,165,0}
+\definecolor{gold}{RGB}{255,215,0}
+\definecolor{gray}{RGB}{128,128,128}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{booktabs}
+% Définition des styles de lignes alternées
+\newcommand{\rowA}{\rowcolor{gray!10}}
+\newcommand{\rowB}{\rowcolor{white}}
+\setlength{\headheight}{14.5pt}  % Ajuste la hauteur de l'en-tête
+\definecolor{gre}{RGB}{101, 191, 127}
+\definecolor{gree}{RGB}{7, 135, 44}
+\setcounter{secnumdepth}{4} % Numérotation jusqu'aux sous-sous-sections
+\geometry{a5paper,hmargin=2.5cm, vmargin=1.5cm}
+\usepackage{titlesec}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand{\refname}{\textcolor{RoyalBlue}{Références bibliographiques}}
+\usepackage[pages=all]{background}
+\usepackage{pifont}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\newpage
+
+\section{Exercice 1 --- Typage implicite, coercition et
+ambiguïtés}\label{exercice-1-typage-implicite-coercition-et-ambiguuxeftuxe9s}
+
+\subsection{Déterminer, sans exécuter le code, le type et le mode de
+chaque
+objet.}\label{duxe9terminer-sans-exuxe9cuter-le-code-le-type-et-le-mode-de-chaque-objet.}
+
+x est de type \textbf(``integer'') et de mode \textbf(``numeric) y est
+de type \textbf(''logical'') et de mode \textbf(``logical'') z est de
+type \textbf(``character'') et de mode \textbf(``character'') w est de
+type \textbf(``list'') et de mode \textbf(``list'')
+
+\subsection{Analyse du résultat des
+expressions:}\label{analyse-du-ruxe9sultat-des-expressions}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{, }\ConstantTok{FALSE}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{z }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"4"}\NormalTok{, }\StringTok{"5"}\NormalTok{, }\StringTok{"6"}\NormalTok{)}
+\NormalTok{w }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\DecValTok{1}\NormalTok{, }\StringTok{"2"}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{y}\SpecialCharTok{+}\FunctionTok{as.integer}\NormalTok{(w)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2 2 2
+\end{verbatim}
+
+\begin{itemize}
+  \item x+y : 
+
+``` r
+x+y
+```
+
+```
+## [1] 2 2 4
+```
+
+x est de type  "integer" et y de classe "logical". Mais puisque le type integer est le supérieur hiérarchique de logical, le vecteur x devient un integer et la somme se fait un à un entre integer
+   
+   \item x+z : \textbf{Résultat} Erreur dans x + z : argument non numérique     pour un opérateur binaire
+
+Dans ce processus, x, est obligé de devenir de type caractère. Mais puisque on ne peut additionner (au sens mathématique) des chaînes de caractère (elles sont stockés comme telle par R), R dit qu'il ne peut le faire. 
+  
+  \item :  as.numeric(z) + x
+
+``` r
+ as.numeric(z) + x
+```
+
+```
+## [1] 5 7 9
+```
+  Ici, z devient un vecteur numérique. Il a au moins le type double (auquel casn x devient double) et donc, l'addition peut se faire entre z et x.  
+  
+  \item  unlist(w) + x \textbf{Résultat} : Erreur dans unlist(w) + x : argument non numérique pour un opérateur binaire
+
+  Quand on enlève w au format liste, il devient un atomic vector contenant : 1, "2" et TRUE. Par supériorité hiérarchique dans la classe des éléments qui composent un vecteur, le vecteur w devient de type "character". Dansl'addition, x devient aussi caractère pour que R puisse additionner des objets de même type. Et comme vu en deuxième point, on ne peut additionner des chaînes de caractère.
+\end{itemize}
+
+\subsection{Identifier tous les cas dans lesquels R effectue une
+coercition
+implicite.}\label{identifier-tous-les-cas-dans-lesquels-r-effectue-une-coercition-implicite.}
+
+\begin{itemize}
+\item : $x+y$ 
+\item : $x+z$
+\item : $x+unlist(z)$ 
+\item : $y+as.integer(z)$ 
+\item $y+as.integer(w)$ 
+\end{itemize}
+
+\subsection{Préciser, pour chaque cas, le type cible et la logique de
+conversion
+mobilisée.}\label{pruxe9ciser-pour-chaque-cas-le-type-cible-et-la-logique-de-conversion-mobilisuxe9e.}
+
+\begin{itemize}
+\item : $x+y$ : $y$ devient un vecteur de type "integer"
+\item : $x+z$ : $x$ devient un vecteur de type "character"
+\item : $x+unlist(z)$ : $unlist(z)$ pousse la liste à devenir un vecteur avec comme type celui du plus grand dans la hiérarchie à savoir "character". L'addition va obliger $x$ à être de type "character". 
+\item : $y+as.integer(z)$ : as.integer(z) transforme $z$ en un vecteur d'entiers : "integer". $y$ qui était "logical" devient donc "integer" à cause de l'addition qui se fait sur des vecteurs de même type.
+\item $y+as.integer(w)$ : as.integer converti w en entier. A cause de l'addition, y devient de type integer. Et l'addition se fait.
+\end{itemize}
+
+\subsection{Discuter rigoureusement les conséquences de l'instruction
+suivante
+:}\label{discuter-rigoureusement-les-consuxe9quences-de-linstruction-suivante}
+
+\end{document}

@@ -1,0 +1,243 @@
+---
+documentclass: article
+fontsize: 11pt
+output:
+  pdf_document:
+    toc: no
+    fig_caption: yes
+    number_sections: no
+    keep_tex: false
+    latex_engine: xelatex
+header-includes: |
+  \usepackage{multirow}
+  \usepackage{array}
+  \usepackage{fancyhdr}
+  \usepackage{amsmath,amssymb}
+  \usepackage{iftex}
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} 
+  \usepackage{mathptmx}
+  \usepackage[]{microtype}
+  \usepackage[margin=1in]{geometry}
+  \usepackage{longtable,booktabs,array}
+  \usepackage{calc}
+  \usepackage{etoolbox}
+  \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+  \usepackage{graphicx}
+  \usepackage{pdfpages}
+  \usepackage{enumitem} 
+  \usepackage{hyperref}
+  \usepackage{float}
+  \usepackage{tikz}
+  \usepackage{tabularx}
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage[french]{babel}
+  % --- PACKAGES POUR LE DESIGN ---
+  \usepackage[dvipsnames, svgnames, x11names]{xcolor} % Pour les couleurs comme MidnightBlue
+  \usepackage{tikz}             % Le moteur de dessin
+  \usetikzlibrary{shapes.geometric, arrows, calc} % Extensions pour les formes et calculs de positions
+  \usepackage{graphicx}         % Pour inclure les logos (.png, .jpg)
+  \usepackage{geometry}         % Pour gérer les marges de la page
+  \usepackage{anyfontsize}      % Pour ajuster la taille des polices librement
+  % --- DÉFINITION DES COULEURS ---
+  % Si "deepblue" n'est pas reconnu, définis-le ici :
+  \definecolor{deepblue}{RGB}{0,40,80}
+  \definecolor{MidnightBlue}{RGB}{25,25,112}
+  \usepackage{tabu} 
+  \usepackage[Conny]{fncychap}
+  \usepackage{setspace}
+  \usepackage{MnSymbol}
+  \usepackage[most, many]{tcolorbox}
+  \definecolor{lightgreen}{rgb}{0.56, 0.93, 0.56}  % Définition de la couleur lightgreen
+  \usepackage{xcolor}
+  \definecolor{lightblue}{rgb}{0.68, 0.85, 0.90} 
+  \definecolor{deepblue}{RGB}{10, 60, 90}
+  \definecolor{MidnightBlue}{RGB}{25, 25, 112}
+  \definecolor{RoyalBlue}{RGB}{65, 105, 225}
+  \definecolor{darkblue}{HTML}{1F3864}
+  \definecolor{steelblue}{RGB}{70,130,180}
+  \definecolor{darkred}{RGB}{139,0,0}
+  \definecolor{ForestGreen}{RGB}{34,139,34}
+  \definecolor{orange}{RGB}{255,165,0}
+  \definecolor{gold}{RGB}{255,215,0}
+  \definecolor{gray}{RGB}{128,128,128}
+  \usepackage{tabularx}
+  \usepackage{colortbl}
+  \usepackage{booktabs}
+  % Définition des styles de lignes alternées
+  \newcommand{\rowA}{\rowcolor{gray!10}}
+  \newcommand{\rowB}{\rowcolor{white}}
+  \setlength{\headheight}{14.5pt}  % Ajuste la hauteur de l'en-tête
+  \definecolor{gre}{RGB}{101, 191, 127}
+  \definecolor{gree}{RGB}{7, 135, 44}
+  \setcounter{secnumdepth}{4} % Numérotation jusqu'aux sous-sous-sections
+  \geometry{a5paper,hmargin=2.5cm, vmargin=1.5cm}
+  \usepackage{titlesec}
+  \renewcommand\thesection{\arabic{section}}
+  \renewcommand{\refname}{\textcolor{RoyalBlue}{Références bibliographiques}}
+  \usepackage[pages=all]{background}
+  \usepackage{pifont}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo      = TRUE,
+  eval      = TRUE,
+  comment   = "##",
+  prompt    = FALSE,
+  warning   = FALSE,
+  message   = FALSE,
+  fig.align = "center",
+  fig.height = 3.2,
+  fig.width  = 5.5,
+  size      = "small"
+)
+```
+\newpage
+
+
+
+# Exercice 1 — Typage implicite, coercition et ambiguïtés
+
+
+## Déterminer, sans exécuter le code, le type et le mode de chaque objet.
+
+x est de type \textbf("integer") et de mode \textbf("numeric)
+y est de type \textbf("logical") et de mode \textbf("logical")
+z est de type \textbf("character") et de mode \textbf("character")
+w est de type \textbf("list") et de mode \textbf("list")
+
+## Analyse du résultat des expressions: 
+
+```{r }
+x <- c(1, 2, 3)
+y <- c(TRUE, FALSE, TRUE)
+z <- c("4", "5", "6")
+w <- list(1, "2", TRUE)
+y+as.integer(w)
+```
+
+\begin{itemize}
+  \item x+y : 
+```{r }
+x+y
+```
+
+x est de type  "integer" et y de classe "logical". Mais puisque le type integer est le supérieur hiérarchique de logical, le vecteur x devient un integer et la somme se fait un à un entre integer
+   
+   \item x+z : \textbf{Résultat} Erreur dans x + z : argument non numérique     pour un opérateur binaire
+
+Dans ce processus, x, est obligé de devenir de type caractère. Mais puisque on ne peut additionner (au sens mathématique) des chaînes de caractère (elles sont stockés comme telle par R), R dit qu'il ne peut le faire. 
+  
+  \item :  as.numeric(z) + x
+```{r }
+ as.numeric(z) + x
+```
+  Ici, z devient un vecteur numérique. Il a au moins le type double (auquel casn x devient double) et donc, l'addition peut se faire entre z et x.  
+  
+  \item  unlist(w) + x \textbf{Résultat} : Erreur dans unlist(w) + x : argument non numérique pour un opérateur binaire
+
+  Quand on enlève w au format liste, il devient un atomic vector contenant : 1, "2" et TRUE. Par supériorité hiérarchique dans la classe des éléments qui composent un vecteur, le vecteur w devient de type "character". Dansl'addition, x devient aussi caractère pour que R puisse additionner des objets de même type. Et comme vu en deuxième point, on ne peut additionner des chaînes de caractère.
+\end{itemize}
+
+##  Identifier tous les cas dans lesquels R effectue une coercition implicite.
+
+\begin{itemize}
+\item : $x+y$ 
+\item : $x+z$
+\item : $x+unlist(z)$ 
+\item : $y+as.integer(z)$ 
+\item $y+as.integer(w)$ 
+\end{itemize}
+
+
+## Préciser, pour chaque cas, le type cible et la logique de conversion mobilisée.
+
+\begin{itemize}
+\item : $x+y$ : $y$ devient un vecteur de type "integer"
+\item : $x+z$ : $x$ devient un vecteur de type "character"
+\item : $x+unlist(z)$ : $unlist(z)$ pousse la liste à devenir un vecteur avec comme type celui du plus grand dans la hiérarchie à savoir "character". L'addition va obliger $x$ à être de type "character". 
+\item : $y+as.integer(z)$ : as.integer(z) transforme $z$ en un vecteur d'entiers : "integer". $y$ qui était "logical" devient donc "integer" à cause de l'addition qui se fait sur des vecteurs de même type.
+\item $y+as.integer(w)$ : as.integer converti w en entier. A cause de l'addition, y devient de type integer. Et l'addition se fait.
+\end{itemize}
+
+## Discuter rigoureusement les conséquences de l’instruction suivante :
+```{r}
+as.numeric(c("10", "A", "20"))
+```
+
+Cette instruction oblige qu'on prenne en compte des NA dans les calculs qui seront fait impliquant ce vecteur. Si cela n'est pas pris en compte, alors les résultats risquent d'être biaisés. 
+
+##Proposer une méthode robuste permettant de détecter automatiquement les conversions problématiques dans un vecteur.
+
+```{r}
+x <- c("10", "A", "20","B")
+y <- as.numeric(x)
+probleme <- x[is.na(y)]
+indice <- which(is.na(y))
+cat(probleme, " qui est/sont dans x à la/les position (s) ", indice, " n'est (ne sont) pas un / des nombre (s)")
+```
+
+# Exercice 2 — Structures hétérogènes et propagation des types
+
+On considère la construction suivante :
+
+```{r}
+A <- c(1, 2, 3)
+B <- c("a", "b", "c")
+C <- c(TRUE, FALSE, TRUE)
+D <- data.frame(A, B, C)
+
+typeof(D[,A]) # "list"
+typeof(D[,C]) # "list"
+class(D)
+```
+
+## Détermination du type de chaque colonne de D. 
+
+Toutes les colonnes sont de type "list". 
+
+##  Expliquer précisément pourquoi R accepte cette structure malgré l’hétérogénéité initiale
+
+Une liste est capable de contenir plusieurs types.
+
+## Comparer le comportement de l’objet D avec celui obtenu après l’instruction suivante :
+
+```{r}
+as.matrix(D)
+```
+```{r}
+D
+```
+
+
+```{r}
+m <- as.matrix(D)
+# 
+# typeof(m[,1])
+# class(m)
+```
+On remarque qu'un objet de classe data.frame préserve le type des éléments de ses colonnes en les mettant dans une liste. Il ne fait de coercition sur tout les éléments qui le compose. Par contre, une matrice effectue une coercition suivant le type sur tout les éléments qui la compose.
+```{r}
+mean(m[,1])
+```
+```{r}
+mean(D[,1])
+```
+
+## Détermination du type final de la matrice obtenue et justification formelle de la réponse.
+
+```{r}
+typeof(m)
+```
+
+## Montrer en quoi cette transformation peut entraîner une perte d’information statistique dans un contexte d’analyse de données.
+ 
+D'abord, le fait que la transformation coerce tous les éléments de la matrice dans le type le plus élevé dans la hiérarchie fait perdre le type de données. Dans un dataframe contenant plusieurs, type de données, vous ne pouvez que manipuler un seul type. \\
+Quand vous calculer une statistique sur des colonnes quantitaives (comme colMeans()), vous aurez des NA au lieu de vraies valeurs. 
+
+## Proposer une stratégie permettant de préserver les types tout en rendant possibles certaines opérations de nature matricielle.
+
+

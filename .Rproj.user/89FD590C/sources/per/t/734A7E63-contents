@@ -1,0 +1,31 @@
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage[french]{babel}
+
+% Définir une couleur vert clair personnalisée
+\definecolor{vertclair}{RGB}{0,139,139}
+
+% Appliquer la couleur et le gras aux titres de section
+\sectionfont{\color{vertclair}\bfseries}
+\subsectionfont{\color{vertclair}\bfseries}
+\subsubsectionfont{\color{vertclair}\bfseries}
+
+% Traduire "Contents" en "Contenu"
+\addto\captionsfrench{\renewcommand{\contentsname}{Table des matières}}
+
+% Changer la taille de police globale
+\renewcommand{\normalsize}{\fontsize{12}{14}\selectfont}
+
+\usepackage{tikz}
+\usepackage{atbegshi}
+\definecolor{vertclair}{RGB}{0,139,139}
+\AtBeginShipout{%
+  \AtBeginShipoutUpperLeft{%
+    \begin{tikzpicture}[remember picture,overlay]
+      \draw[line width=2pt,color=vertclair]
+        ([xshift=10pt,yshift=-10pt]current page.north west)
+        rectangle
+        ([xshift=-10pt,yshift=10pt]current page.south east);
+    \end{tikzpicture}
+  }
+}

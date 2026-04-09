@@ -1,0 +1,765 @@
+---
+title: "Traitement Statistique avec R"
+author: "M. H. DIALLO"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+output:
+  beamer_presentation:
+    theme: Madrid
+    colortheme: default
+    fonttheme: structurebold
+    slide_level: 2
+    toc: true
+    keep_tex: false
+    latex_engine: xelatex
+    # includes:
+    #   in_header: header.tex
+  slidy_presentation: default
+  ioslides_presentation: default
+subtitle: Types de données en R
+institute: "Ecole Nationale de la Statistique et de l'Analyse Economique  \nENSAE
+  Pierre Ndiaye | ISEP2\n"
+---
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo      = TRUE,
+  eval      = TRUE,
+  comment   = "##",
+  prompt    = FALSE,
+  warning   = FALSE,
+  message   = FALSE,
+  fig.align = "center",
+  fig.height = 3.2,
+  fig.width  = 5.5,
+  size      = "small"
+)
+```
+
+# Introduction aux types de données
+
+## Pourquoi les types de données sont-ils importants ?
+
+\begin{block}{Principe fondamental}
+En R, \textbf{tout est un objet} et chaque objet a un type.  
+Connaître les types évite 80\,\% des erreurs de programmation.
+\end{block}
+
+\vspace{0.4em}
+
+Les types de données déterminent :
+
+- Les **opérations possibles** sur un objet (`+`, `mean()`, `paste()`…)
+- La **mémoire utilisée** (integer < double < character)
+- Le **comportement des fonctions** (coercition implicite)
+- La **structure d'une analyse** (factor ≠ character pour une régression)
+
+\vspace{0.3em}
+
+\begin{alertblock}{À retenir}
+R a une \textbf{hiérarchie de types} :  
+\texttt{logical} $<$ \texttt{integer} $<$ \texttt{double} $<$ \texttt{complex} $<$ \texttt{character}
+\end{alertblock}
+
+## Vue d'ensemble des types en R
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Type} & \textbf{Classe} & \textbf{Exemple} \\
+\midrule
+Vecteur logique   & \texttt{logical}   & \texttt{TRUE / FALSE} \\
+Vecteur entier    & \texttt{integer}   & \texttt{1L, 2L} \\
+Vecteur réel      & \texttt{double}    & \texttt{3.14} \\
+Vecteur texte     & \texttt{character} & \texttt{"Dakar"} \\
+Facteur           & \texttt{factor}    & \texttt{factor("H","F")} \\
+Matrice           & \texttt{matrix}    & \texttt{matrix(1:9, 3, 3)} \\
+Liste             & \texttt{list}      & \texttt{list(a=1, b="x")} \\
+Data Frame        & \texttt{data.frame}& \texttt{data.frame(...)} \\
+Tibble            & \texttt{tbl\_df}   & \texttt{tibble(...)} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+# Objets R : environment, class, typeof
+
+## Les objets R — Concept central
+
+\begin{block}{Définition}
+Un \textbf{objet R} est tout élément stocké en mémoire avec un nom,
+un type interne (\texttt{typeof}) et une classe (\texttt{class}).
+\end{block}
+
+```{r objets-base}
+x <- 42L          # entier
+y <- 3.14         # réel
+z <- "Sénégal"    # texte
+b <- TRUE         # logique
+
+# Inspecter type interne vs classe
+typeof(x);  class(x)
+typeof(y);  class(y)
+```
+
+## typeof() vs class() vs mode()
+
+Ces trois fonctions donnent des informations **différentes** :
+
+```{r typeof-class}
+v <- 1:5          # vecteur d'entiers
+typeof(v)         # type interne de stockage
+class(v)          # classe (orienté objet)
+mode(v)           # mode de stockage (héritage S3)
+```
+
+\vspace{0.3em}
+
+\begin{alertblock}{Règle pratique}
+\begin{itemize}
+  \item \texttt{typeof()} → stockage bas niveau (\texttt{integer}, \texttt{double}…)
+  \item \texttt{class()} → comportement OO (\texttt{factor}, \texttt{Date}, \texttt{lm}…)
+  \item \texttt{is.*()} → tests booléens : \texttt{is.numeric()}, \texttt{is.character()}\ldots
+\end{itemize}
+\end{alertblock}
+
+## L'environnement R (Environment)
+
+```{r environment}
+# Créer des objets dans l'environnement global
+salaire  <- 450000
+pays     <- "Sénégal"
+actif    <- TRUE
+
+# Lister les objets présents
+ls()
+rm(list=ls())
+
+# Voir l'environnement courant
+environment()
+```
+
+\begin{block}{Environnements imbriqués}
+\texttt{Global Env} $\supset$ \texttt{Package Env} $\supset$ \texttt{Base Env}  
+Les fonctions créent leur \textbf{propre environnement local}.
+\end{block}
+
+## Tester et convertir les types
+
+```{r coercition}
+# Tests de type
+is.numeric(3.14)
+is.character("Dakar")
+is.logical(FALSE)
+
+# Conversion (coercition explicite)
+as.integer(3.7)      # troncature → 3
+as.character(TRUE)   # → "TRUE"
+as.numeric("12.5")   # → 12.5
+as.numeric("abc")    # → NA (avec warning)
+```
+
+# Vecteurs atomiques
+
+## Qu'est-ce qu'un vecteur atomique ?
+
+\begin{block}{Définition}
+Un \textbf{vecteur atomique} est la structure de base de R.  
+Il contient des éléments \textbf{tous du même type}.  
+\textit{Tout scalaire est en réalité un vecteur de longueur 1.}
+\end{block}
+
+\vspace{0.3em}
+
+<!-- Les 4 types atomiques principaux : -->
+
+<!-- \begin{center} -->
+<!-- \begin{tabular}{llll} -->
+<!-- \toprule -->
+<!-- \textbf{Type} & \textbf{Création} & \textbf{NA associé} & \textbf{Mémoire} \\ -->
+<!-- \midrule -->
+<!-- \texttt{logical}   & \texttt{TRUE/FALSE} & \texttt{NA}          & 4 octets \\ -->
+<!-- \texttt{integer}   & \texttt{1L, 2L}     & \texttt{NA\_integer\_}& 4 octets \\ -->
+<!-- \texttt{double}    & \texttt{1.5}        & \texttt{NA\_real\_}   & 8 octets \\ -->
+<!-- \texttt{character} & \texttt{"texte"}    & \texttt{NA\_character\_}& variable \\ -->
+<!-- \bottomrule -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
+
+Les 4 types atomiques principaux :
+
+| Type        | Création        | NA associé        | Mémoire  |
+|-------------|----------------|------------------|----------|
+| `logical`   | `TRUE/FALSE`   | `NA`             | 4 octets |
+| `integer`   | `1L, 2L`       | `NA_integer_`    | 4 octets |
+| `double`    | `1.5`          | `NA_real_`       | 8 octets |
+| `character` | `"texte"`      | `NA_character_`  | variable |
+
+## Créer et manipuler des vecteurs
+
+```{r vecteurs-creation}
+# Vecteur logique
+logique2 <- c(TRUE, FALSE, TRUE, NA, "NAs")
+is.logical(logique2)
+logique3 <- as.logical(logique2)
+is.logical(logique3)
+
+logique <- c(TRUE, FALSE, TRUE, NA, "1")
+logique1 <- as.logical(logique)
+is.logical(logique1)
+
+logique4 <- c(TRUE, FALSE, TRUE, FALSE, 1)
+logique5 <- c(1, 0, 1, 0, 1)
+logique5b <-as.logical(logique5)
+is.logical(logique5b)
+logique5b
+
+logique5 <- c(1, 0, 1, -2, 1)
+logique5b <-as.logical(logique5)
+is.logical(logique5b)
+logique5b
+
+# Vecteur entier
+entiers <- c(1L, 5L, 10L, 15L)
+
+# Vecteur réel
+reels   <- c(2.5, 7.3, 1.8, 9.6)
+
+# Vecteur texte
+regions <- c("Dakar", "Thiès", "Diourbel", "Ziguinchor")
+
+# Longueur, type, résumé
+length(reels)
+typeof(entiers)
+summary(reels)
+```
+
+
+# Break Session 2 " 
+##Homework deja donne ! 
+## Exposer 
+texy. l;
+## Opérations vectorisées
+```{r naom, message=FALSE}
+
+```
+
+
+```{r vecteurs-ops}
+revenus <- c(150000, 320000, 480000, 95000, 275000)
+length(revenus)
+# Opérations vectorisées (appliquées à chaque élément)
+revenus / 1000          # diviser tous les éléments
+revenus
+print(revenus)
+
+revenus1 <- revenus > 200000        # vecteur logique résultant
+revenus1
+sum(revenus1)
+revenus2 <- revenus[revenus > 200000]  # sous-sélection (filtrage)
+revenus
+# Fonctions statistiques de base
+mean(revenus)
+median(revenus)
+sd(revenus)
+```
+
+## Indexation des vecteurs
+
+```{r vecteurs-index}
+pays_cedeao <- c("Sénégal","Mali","Niger",
+                 "Burkina","Côte d'Ivoire","Ghana")
+
+# Par position
+pays_cedeao[1]           # premier élément
+pays_cedeao[c(1,3,5)]   # éléments 1, 3 et 5
+pays_cedeao[1:2]
+
+# Par exclusion
+pays_cedeao[-2]          # tout sauf le 2e
+
+# Par condition logique
+nchar(pays_cedeao) > 4   # longueur du nom > 4 lettres
+pays_cedeao[nchar(pays_cedeao) > 4]
+```
+
+## Valeurs manquantes (NA)
+
+```{r na-valeurs}
+ages <- c(25, NA, 31, NA, 42, 29)
+
+# Détecter les NA
+is.na(ages)
+sum(is.na(ages))       # nombre de NA
+
+# Calculs en présence de NA
+mean(ages)             # NA si NA présents
+mean(ages, na.rm=TRUE) # ignorer les NA → résultat valide
+
+# Remplacer les NA
+ages[is.na(ages)] <- median(ages, na.rm=TRUE)
+ages
+```
+
+\begin{alertblock}{Règle d'or}
+Toujours vérifier les NA avant toute analyse : \texttt{sum(is.na(x))}.
+\end{alertblock}
+
+# Facteurs — Variables catégorielles
+
+## Qu'est-ce qu'un facteur ?
+
+\begin{block}{Définition}
+Un \textbf{facteur} (\texttt{factor}) est un vecteur d'entiers avec des
+\textbf{étiquettes} (\textit{levels}).  
+Il représente des \textbf{variables catégorielles} — essentiels pour les
+modèles statistiques en R.
+\end{block}
+
+\vspace{0.3em}
+
+\begin{columns}
+\begin{column}{0.48\textwidth}
+\textbf{Factor non ordonné}
+\begin{itemize}
+  \item Sexe : H / F
+  \item Région, ethnie, secteur
+  \item Modalités \textbf{sans ordre naturel}
+\end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}
+\textbf{Factor ordonné}
+\begin{itemize}
+  \item Niveau d'études
+  \item Faible $<$ Moyen $<$ Élevé
+  \item Modalités \textbf{ordonnées}
+\end{itemize}
+\end{column}
+\end{columns}
+
+## Créer et inspecter un facteur
+
+```{r factor-creation}
+# Facteur simple (non ordonné)
+sexe <- factor(c("H","F","F","H","H","F","H"))
+sexe
+
+# Inspecter le facteur
+levels(sexe)          # modalités
+nlevels(sexe)         # nombre de modalités
+table(sexe)           # fréquences absolues
+prop.table(table(sexe)) # fréquences relatives
+```
+
+## Facteur ordonné (ordered factor)
+
+```{r factor-ordonne}
+# Facteur ordonné — niveau d'instruction
+niveaux <- c("Primaire","Secondaire","Supérieur",
+             "Primaire","Supérieur","Secondaire")
+
+educ <- factor(niveaux,
+               levels  = c("Primaire","Secondaire","Supérieur"),
+               ordered = TRUE)
+educ
+niveaux2 <- (rep(c(1,2,3),4))
+niveaux2
+ educ1 <- factor(niveaux2,levels = c(1,2,3), labels = c("Primaire","Secondaire","Supérieur") )
+educ1
+
+# Comparaison possible grâce à l'ordre
+educ[1] < educ[3]    # Primaire < Supérieur ?
+min(educ)            # niveau minimum
+```
+
+## Facteurs — Pièges courants
+
+```{r factor-pieges}
+# Piège 1 : factor ≠ character
+f1 <- c("10","20","5","30")
+sort(f1)
+f <- factor(c("10","20","5","30","HH"))
+sort(f)              # tri LEXICOGRAPHIQUE (1,10,20,30,5 !)
+sort(as.numeric(as.character(f)))  # tri numérique correct
+
+# Piège 2 : as.numeric() sur un factor
+# MAUVAIS : retourne les codes internes (1,2,3...)
+as.numeric(f)
+
+
+# BON : passer par character d'abord
+as.numeric(as.character(f))
+```
+
+\begin{alertblock}{Règle d'or}
+Pour convertir un factor numérique en nombre :  
+\texttt{as.numeric(as.character(f))} — jamais \texttt{as.numeric(f)} directement.
+\end{alertblock}
+
+## Facteurs avec forcats (tidyverse)
+
+```{r forcats, message=FALSE}
+library(forcats)
+
+regions <- factor(c("Dakar","Thiès","Dakar","Ziguinchor",
+                    "Thiès","Dakar","Dakar","Diourbel"))
+
+# Réordonner par fréquence décroissante
+fct_infreq(regions)
+
+# Regrouper les modalités rares
+fct_lump_n(regions, n = 2, other_level = "Autres")
+```
+
+# Matrices et tableaux
+
+## Créer une matrice
+
+\begin{block}{Définition}
+Une \textbf{matrice} (\texttt{matrix}) est un vecteur à 2 dimensions :
+\textbf{lignes} $\times$ \textbf{colonnes}, \textbf{un seul type} autorisé.
+\end{block}
+
+```{r matrix-creation}
+# Matrice 3x3 remplie par colonnes (par défaut)
+M <- matrix(1:9, nrow = 3, ncol = 3)
+M
+
+# Remplir par lignes
+M_row <- matrix(1:9, nrow = 3, byrow = TRUE)
+M_row
+
+dim(M)    # dimensions
+nrow(M); ncol(M)
+```
+
+## Opérations sur les matrices
+
+```{r matrix-ops}
+A <- matrix(c(2,1,3,4), nrow=2)
+B <- matrix(c(1,0,0,1), nrow=2)
+
+# Opérations élément par élément
+A + B
+A * 2        # multiplication scalaire
+
+# Algèbre matricielle
+A %*% B      # produit matriciel
+t(A)         # transposée
+det(A)       # déterminant
+solve(A)     # matrice inverse
+```
+
+## Tableaux multidimensionnels (array)
+
+```{r array}
+# Array 3D : 3 lignes x 3 colonnes x 2 tranches
+T3D <- array(1:18, dim = c(3, 3, 2))
+
+# Accès à la première tranche
+T3D[,,1]
+
+# Accès à la deuxième tranche
+T3D[,,2]
+
+# Dimensions
+dim(T3D)
+```
+
+\begin{block}{Usage typique des arrays}
+Données longitudinales : individus $\times$ variables $\times$ années.  
+Souvent remplacés par des \texttt{data.frame} en pratique statistique.
+\end{block}
+
+## Nommer lignes et colonnes
+
+```{r matrix-noms}
+# Matrice de résultats d'un test
+scores <- matrix(c(14,16,12,18,15,13,17,11,19),
+                 nrow = 3, ncol = 3,
+                 dimnames = list(
+                   c("Étudiant_1","Étudiant_2","Étudiant_3"),
+                   c("Maths","Stats","Informatique")
+                 ))
+scores
+
+# Accès par nom
+scores["Étudiant_1", "Stats"]
+rowMeans(scores)    # moyenne par étudiant
+colMeans(scores)    # moyenne par matière
+```
+
+# Listes
+
+## Qu'est-ce qu'une liste ?
+
+\begin{block}{Définition}
+Une \textbf{liste} (\texttt{list}) est une structure \textbf{récursive} pouvant
+contenir des éléments de \textbf{types différents} et de tailles différentes.
+\end{block}
+
+\vspace{0.3em}
+
+C'est la structure la plus **flexible** de R :
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\textbf{Structure} & \textbf{Types autorisés} \\
+\midrule
+Vecteur   & Un seul type \\
+Matrice   & Un seul type \\
+Data Frame & Un type par colonne \\
+\textbf{Liste} & \textbf{N'importe quoi} (y compris d'autres listes) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.2em}
+Les modèles R (\texttt{lm}, \texttt{glm}) et les résultats JSON sont des listes.
+
+## Créer et accéder à une liste
+
+```{r list-creation}
+# Liste hétérogène
+etudiant <- list(
+  nom      = "Ousmane Diop",
+  age      = 22L,
+  notes    = c(14, 16, 12, 18, 15),
+  admis    = TRUE,
+  adresse  = list(ville = "Dakar", quartier = "Plateau")
+)
+
+# Trois façons d'accéder
+etudiant$nom           # par nom avec $
+etudiant[["notes"]]    # par nom avec [[]]
+etudiant[[2]]          # par position
+```
+
+## Naviguer dans une liste imbriquée
+
+```{r list-imbrique}
+# Accès à la liste imbriquée
+etudiant$adresse$ville
+etudiant[["adresse"]][["quartier"]]
+
+# Modifier un élément
+etudiant$age <- 23L
+
+# Ajouter un élément
+etudiant$filiere <- "Statistique"
+
+# Supprimer un élément
+etudiant$adresse <- NULL
+
+str(etudiant)    # structure complète
+```
+
+## Parcourir une liste avec lapply/sapply
+
+```{r list-apply}
+# Liste de vecteurs de notes
+promo <- list(
+  groupe_A = c(12, 15, 14, 16, 11),
+  groupe_B = c(10, 13, 17, 12, 14),
+  groupe_C = c(16, 15, 18, 14, 13)
+)
+
+# lapply → retourne une liste
+lapply(promo, mean)
+
+# sapply → retourne un vecteur (si possible)
+sapply(promo, mean)
+
+# Avec purrr (tidyverse)
+# purrr::map_dbl(promo, mean)
+```
+
+# Data Frames et Jeux de données
+
+## Le Data Frame — Structure centrale de l'analyse
+
+\begin{block}{Définition}
+Un \textbf{data.frame} est un tableau rectangulaire :
+\begin{itemize}
+  \item \textbf{Lignes} = observations (individus, ménages, entreprises\ldots)
+  \item \textbf{Colonnes} = variables (chaque colonne est un vecteur)
+  \item Chaque colonne peut avoir un \textbf{type différent}
+\end{itemize}
+\end{block}
+
+C'est une liste de vecteurs de même longueur — `is.list(df)` retourne `TRUE`.
+
+```{r df-creation}
+menages <- data.frame(
+  id        = 1:5,
+  region    = c("Dakar","Thiès","Dakar","Diourbel","Ziguinchor"),
+  revenu    = c(450000, 280000, 620000, 195000, 310000),
+  taille    = c(6L, 4L, 7L, 5L, 3L),
+  electrice = c(TRUE, TRUE, TRUE, FALSE, TRUE)
+)
+```
+
+## Inspecter un data.frame
+
+```{r df-inspect}
+# Dimensions
+nrow(menages); ncol(menages); dim(menages)
+
+# Aperçu
+head(menages, 3)
+
+# Structure complète
+str(menages)
+```
+
+## Résumé statistique
+
+```{r df-summary}
+summary(menages)
+```
+
+## Accès et sélection dans un data.frame
+
+```{r df-acces}
+# Accès à une colonne
+menages$revenu
+menages[["region"]]
+
+# Sélection de lignes et colonnes
+menages[1:3, ]              # 3 premières lignes
+menages[, c("region","revenu")]  # 2 colonnes
+menages[menages$revenu > 300000, ]  # filtre
+```
+
+## Le Tibble — Version moderne du data.frame
+
+```{r tibble, message=FALSE}
+library(tibble)
+
+# Créer un tibble
+tb <- tibble(
+  id     = 1:5,
+  region = c("Dakar","Thiès","Dakar","Diourbel","Ziguinchor"),
+  revenu = c(450000, 280000, 620000, 195000, 310000)
+)
+tb   # affichage intelligent (type, 10 lignes max)
+```
+
+## Tibble vs data.frame — Différences clés
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Comportement} & \textbf{data.frame} & \textbf{tibble} \\
+\midrule
+Partial matching   & \texttt{df\$re} fonctionne & \texttt{Erreur} (sécurité) \\
+\texttt{[]} résultat & df ou vecteur & tibble toujours \\
+Noms de colonnes   & modifiés automatiquement & préservés \\
+Affichage          & tout le tableau & 10 lignes + types \\
+Conversion chaînes & \texttt{stringsAsFactors} & jamais automatique \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.3em}
+
+\begin{block}{Recommandation}
+Utiliser \texttt{tibble()} dans tout nouveau projet tidyverse.  
+Convertir : \texttt{as\_tibble(df)} / \texttt{as.data.frame(tb)}
+\end{block}
+
+# Synthèse et bonnes pratiques
+
+## Synthèse — Choisir la bonne structure
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Structure} & \textbf{Quand l'utiliser} & \textbf{Contrainte} \\
+\midrule
+\texttt{vector}    & Série de valeurs homogènes & 1 seul type \\
+\texttt{factor}    & Variable catégorielle       & Modalités définies \\
+\texttt{matrix}    & Calcul matriciel, algèbre   & 1 seul type, 2D \\
+\texttt{array}     & Données multidimensionnelles& 1 seul type, nD \\
+\texttt{list}      & Données hétérogènes         & Aucune \\
+\texttt{data.frame}& Tableau de données          & Colonnes = même longueur \\
+\texttt{tibble}    & Analyse tidyverse           & Colonnes = même longueur \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+## Diagnostic rapide d'un objet inconnu
+
+```{r diagnostic}
+# Créer un objet "mystère"
+obj <- lm(revenu ~ taille, data = menages)
+
+# Boîte à outils du diagnostic
+class(obj)       # classe de l'objet
+typeof(obj)      # type interne
+length(obj)      # nombre d'éléments
+names(obj)       # noms des composantes
+is.list(obj)     # un modèle lm est une liste !
+str(obj)         # structure complète (résumé)
+```
+
+## Bonnes pratiques — Résumé
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\textbf{À faire}
+\begin{itemize}
+  \item Toujours vérifier \texttt{str()} après import
+  \item Utiliser \texttt{is.na()} avant d'analyser
+  \item Déclarer les facteurs \textbf{avant} la modélisation
+  \item Préférer \texttt{tibble} à \texttt{data.frame}
+  \item Nommer les éléments de ses listes
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+\textbf{À éviter}
+\begin{itemize}
+  \item \texttt{as.numeric(factor)} sans passer par \texttt{as.character()}
+  \item Ignorer les \texttt{NA} sans justification
+  \item Mélanger types dans un vecteur (coercition silencieuse)
+  \item Utiliser \texttt{T} / \texttt{F} au lieu d \texttt{TRUE} / \texttt{FALSE}
+  \item Partial matching (\texttt{df\$rev} au lieu de \texttt{df\$revenu})
+\end{itemize}
+\end{column}
+\end{columns}
+
+## Exercices pratiques
+
+\begin{alertblock}{Exercice 1 — Vecteurs}
+Créer un vecteur \texttt{salaires} de 8 valeurs.  
+Calculer la moyenne, la médiane, l'écart-type.  
+Remplacer les valeurs $>$ 500\,000 par \texttt{NA}.
+\end{alertblock}
+
+\begin{block}{Exercice 2 — Facteurs}
+Créer un vecteur \texttt{niveau\_vie} avec les modalités  
+\texttt{"Pauvre"}, \texttt{"Moyen"}, \texttt{"Aisé"} (10 observations, ordonné).  
+Calculer les fréquences et comparer deux individus.
+\end{block}
+
+\begin{exampleblock}{Exercice 3 — Data Frame}
+Créer un \texttt{data.frame} de 6 ménages avec 4 variables.  
+Convertir en \texttt{tibble}.  
+Filtrer les ménages avec \texttt{revenu > 300000}.
+\end{exampleblock}
+
+## Références
+
+\begin{itemize}
+  \item Wickham, H. \textit{Advanced R}, 2e éd. — \href{https://adv-r.hadley.nz}{adv-r.hadley.nz}
+  \item Wickham \& Grolemund. \textit{R for Data Science}, 2e éd. — \href{https://r4ds.hadley.nz}{r4ds.hadley.nz}
+  \item Documentation officielle R — \href{https://cran.r-project.org/manuals.html}{cran.r-project.org}
+  \item Lafaye de Micheaux et al. (2014). \textit{Le logiciel R}, Springer.
+\end{itemize}
+
+\vspace{1em}
+
+\begin{center}
+{\Large \textbf{Questions ?}}\\[0.5em]
+\textcolor{orange}{\large \texttt{hadyafia@gmail.com}}
+\end{center}

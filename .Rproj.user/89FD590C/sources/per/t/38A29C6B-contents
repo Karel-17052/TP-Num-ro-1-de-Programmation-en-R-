@@ -1,0 +1,2031 @@
+---
+documentclass: article
+fontsize: 11pt
+output:
+  pdf_document:
+    toc: no
+    fig_caption: yes
+    number_sections: no
+    keep_tex: no
+header-includes: |
+  \usepackage{multirow}
+  \usepackage{array}
+  \usepackage{fancyhdr}
+  \usepackage{amsmath,amssymb}
+  \usepackage{iftex}
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} 
+  \usepackage{mathptmx}
+  \usepackage[]{microtype}
+  \usepackage[margin=1in]{geometry}
+  \usepackage{longtable,booktabs,array}
+  \usepackage{calc}
+  \usepackage{etoolbox}
+  \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+  \usepackage{graphicx}
+  \usepackage{pdfpages}
+  \usepackage{enumitem} 
+  \usepackage{hyperref}
+  \usepackage{float}
+  \usepackage{tikz}
+  \usepackage{tabularx}
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage[french]{babel}
+  % --- PACKAGES POUR LE DESIGN ---
+  \usepackage[dvipsnames, svgnames, x11names]{xcolor} % Pour les couleurs comme MidnightBlue
+  \usepackage{tikz}             % Le moteur de dessin
+  \usetikzlibrary{shapes.geometric, arrows, calc} % Extensions pour les formes et calculs de positions
+  \usepackage{graphicx}         % Pour inclure les logos (.png, .jpg)
+  \usepackage{geometry}         % Pour gérer les marges de la page
+  \usepackage{anyfontsize}      % Pour ajuster la taille des polices librement
+  % --- DÉFINITION DES COULEURS ---
+  % Si "deepblue" n'est pas reconnu, définis-le ici :
+  \definecolor{deepblue}{RGB}{0,40,80}
+  \definecolor{MidnightBlue}{RGB}{25,25,112}
+  \usepackage{tabu} 
+  \usepackage[Conny]{fncychap}
+  \usepackage{setspace}
+  \usepackage{MnSymbol}
+  \usepackage[most, many]{tcolorbox}
+  \definecolor{lightgreen}{rgb}{0.56, 0.93, 0.56}  % Définition de la couleur lightgreen
+  \usepackage{xcolor}
+  \definecolor{lightblue}{rgb}{0.68, 0.85, 0.90} 
+  \definecolor{deepblue}{RGB}{10, 60, 90}
+  \definecolor{MidnightBlue}{RGB}{25, 25, 112}
+  \definecolor{RoyalBlue}{RGB}{65, 105, 225}
+  \definecolor{darkblue}{HTML}{1F3864}
+  \definecolor{steelblue}{RGB}{70,130,180}
+  \definecolor{darkred}{RGB}{139,0,0}
+  \definecolor{ForestGreen}{RGB}{34,139,34}
+  \definecolor{orange}{RGB}{255,165,0}
+  \definecolor{gold}{RGB}{255,215,0}
+  \definecolor{gray}{RGB}{128,128,128}
+  \usepackage{tabularx}
+  \usepackage{colortbl}
+  \usepackage{booktabs}
+  % Définition des styles de lignes alternées
+  \newcommand{\rowA}{\rowcolor{gray!10}}
+  \newcommand{\rowB}{\rowcolor{white}}
+  \setlength{\headheight}{14.5pt}  % Ajuste la hauteur de l'en-tête
+  \definecolor{gre}{RGB}{101, 191, 127}
+  \definecolor{gree}{RGB}{7, 135, 44}
+  \setcounter{secnumdepth}{4} % Numérotation jusqu'aux sous-sous-sections
+  \geometry{a5paper,hmargin=2.5cm, vmargin=1.5cm}
+  \usepackage{titlesec}
+  \renewcommand\thesection{\arabic{section}}
+  \renewcommand{\refname}{\textcolor{RoyalBlue}{Références bibliographiques}}
+  \usepackage[pages=all]{background}
+  \usepackage{pifont}
+---
+
+
+```{=tex}
+	%%%%%%%%%%%%%%%%Pied de page et en-tête%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % Dimensions
+  \setlength{\headheight}{18pt}
+  \setlength{\headsep}{20pt}
+  \setlength{\footskip}{25pt}
+  
+  % Lignes colorées
+  \renewcommand{\headrulewidth}{1pt}
+  \let\oldheadrule\headrule
+  \renewcommand{\headrule}{\color{MidnightBlue}\oldheadrule}
+  
+  \renewcommand{\footrulewidth}{1pt}
+  \let\oldfootrule\footrule
+  \renewcommand{\footrule}{\color{MidnightBlue}\oldfootrule}
+  
+  % Style
+  \pagestyle{fancy}
+  
+  \lhead{\scriptsize Gestion de portefeuille}
+  \rhead{\scriptsize 2025-2026}
+  \lfoot{\scriptsize Sié Rachid Traoré}
+  \rfoot{\scriptsize ISE3-ENSAE 2026}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\begin{tikzpicture}[remember picture, overlay]
+    % 1. Fond et Bordures existantes
+    \fill[deepblue!3] (current page.south west) rectangle (current page.north east);
+    
+    \draw [deepblue, line width=2pt] ([shift={(10pt,-10pt)}]current page.north west) rectangle ([shift={(-10pt,10pt)}]current page.south east);
+    
+    \draw [orange!60!black, line width=0.5pt] ([shift={(12.5pt,-12.5pt)}]current page.north west) rectangle ([shift={(-12.5pt,12.5pt)}]current page.south east);
+    
+    \draw [deepblue!60, line width=0.8pt] ([shift={(15pt,-15pt)}]current page.north west) rectangle ([shift={(-15pt,15pt)}]current page.south east);
+
+    % 2. FILIGRANE CENTRAL (L'ajout "Plus")
+    % Remplace 'ENSAE-logo' par le nom de ton fichier image si tu veux le logo en fond
+    \node[opacity=0.05] at (current page.center) {\includegraphics[width=0.6\paperwidth]{ressource/image/ENSAE-Dakar-logo.png}};
+
+    % 3. Motifs de Coins "Diamants"
+    \foreach \anchor/\xshift/\yshift in {north west/25pt/-25pt, north east/-25pt/-25pt, south west/25pt/25pt, south east/-25pt/25pt} {
+        \draw[deepblue!40, fill=deepblue!10, rotate around={45:([shift={(\xshift,\yshift)}]current page.\anchor)}] 
+            ([shift={(\xshift,\yshift)}]current page.\anchor) rectangle ++(10pt,10pt);
+    }
+
+    % 4. Bandeau de bas de page amélioré
+    \draw[deepblue!80, line width=1.5pt] ([shift={(100pt,40pt)}]current page.south west) -- ([shift={(-100pt,40pt)}]current page.south east);
+    \node[draw=deepblue, fill=white, star, star points=5, inner sep=2pt, line width=1pt] 
+        at ([yshift=40pt]current page.south) {};
+
+\end{tikzpicture}
+
+\thispagestyle{empty}
+
+\begin{center}
+    \vspace*{-1cm}
+    \textsc{\large République du Sénégal}\\
+    \small{Un Peuple - Un But - Une Foi}\\[0.3cm]
+    \includegraphics[width=50pt]{ressource/image/Republique du Senegal.png}\\[0.4cm]
+
+    \textbf{Agence Nationale de la Statistique et de la Démographie (ANSD)}\\
+    \includegraphics[width=45pt]{ressource/image/ANSD.jpg}\\[0.2cm]
+    
+    \textbf{École Nationale de la Statistique et de l'Analyse Économique Pierre Ndiaye (ENSAE)}\\
+    \includegraphics[width=35pt]{ressource/image/ENSAE-Dakar-logo.png}\\[0.8cm]
+
+    % BLOC TITRE STYLE
+    \begin{tikzpicture}
+        \node[fill=MidnightBlue, text=white, inner sep=10pt, rounded corners=2pt, align=center, font=\Large\bfseries] (titre) {
+            DOSSIER DE GESTION DE PORTFEUILLE
+        };
+        \draw[MidnightBlue, line width=2pt] ([yshift=-5pt]titre.south west) -- ([yshift=-5pt]titre.south east);
+    \end{tikzpicture}
+    
+    \vspace{0.5cm}
+    {\itshape\large « La théorie de Markowitz - Les stratégies fondamentales - Les stratégies d’analyse technique »}\\[1.5cm]
+
+    % ZONE AUTEURS
+    \begin{minipage}{0.45\textwidth}
+        \begin{flushleft} \large
+            \textcolor{MidnightBlue}{\textit{Rédigé par :}}\\
+            \textbf{Sié Rachid Traoré}\\
+            \textsc{\scriptsize Ingénieur Statisticien Economiste en fin de formation}
+        \end{flushleft}
+    \end{minipage}
+    \begin{minipage}{0.45\textwidth}
+        \begin{flushright} \large
+            \textcolor{MidnightBlue}{\textit{Sous la supervision de :}}\\
+            \textbf{M. Abdoulaye Konté}\\
+            \textsc{\scriptsize Enseignant}
+        \end{flushright}
+    \end{minipage}
+
+    \vfill
+    {\large \textbf{Mars 2026}}
+\end{center}
+  
+
+
+  \backgroundsetup{
+    scale=1,
+    color=black,
+    opacity=1,
+    angle=0,
+    contents={%
+      \begin{tikzpicture}[remember picture, overlay]
+        % 1. Équerres d'angles "Double Ligne" (Plus moderne)
+        \foreach \anchor/\rot in {north west/0, north east/-90, south east/-180, south west/90} {
+          \begin{scope}[shift={([shift={(15pt,-15pt)}]current page.\anchor)}, rotate=\rot]
+            \draw[deepblue!60, line width=1.2pt] (0,-25pt) -- (0,0) -- (25pt,0);
+            \draw[orange!60!black, line width=0.4pt] (3pt,-22pt) -- (3pt,3pt) -- (22pt,3pt);
+          \end{scope}
+        }
+        % 2. Marge technique avec graduation (Style règle d'ingénieur)
+        \draw[deepblue!20, line width=0.5pt] 
+            ([xshift=35pt, yshift=-60pt]current page.north west) -- ([xshift=35pt, yshift=60pt]current page.south west);
+        \foreach \y in {0,20,...,400} {
+            \draw[deepblue!20] ([xshift=35pt, yshift=-\y pt-100pt]current page.north west) -- ++(-3pt,0);
+        }
+        %3. Bandeau de bas de page amélioré (Plus épais et avec un symbole)\begin{scope}[shift={([shift={(-120pt,-80pt)}]current page.north east)}, scale=0.9]
+        \draw[deepblue!80, line width=1.5pt] ([xshift=-100pt, yshift=40pt]current page.south) -- ([xshift=100pt, yshift=40pt]current page.south);
+        \node[draw=deepblue, fill=white, star, star points=5, inner sep=2pt, line width=1pt] 
+            at ([yshift=40pt]current page.south) {};
+        % 4. Rappel discret de l'institution en filigrane vertical
+        \node[deepblue!15, rotate=90, anchor=south] at ([xshift=25pt]current page.west) 
+            {\textsc{\scriptsize ENSAE Pierre Ndiaye - Ingénieur Statisticien Économiste - Promo 2026}};;
+      \end{tikzpicture}%
+    }
+  }
+
+  \newpage
+  \setcounter{tocdepth}{2}
+  \renewcommand{\contentsname}{\textcolor{MidnightBlue}{Sommaire}}
+  \textcolor{black}{\tableofcontents}
+
+  \renewcommand{\listtablename}{\textcolor{MidnightBlue}{Liste des tableaux}}
+  {\color{black}\listoftables}
+
+  %\renewcommand{\listfigurename}{\textcolor{MidnightBlue}{Liste des graphiques}}
+  %{\color{black}\listoffigures}
+```
+
+
+```{r setup, include=FALSE,comment=""}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+options(OutDec = ",") # pour des sorties decimales avec , et non .
+```
+
+\newpage
+
+\textcolor{MidnightBlue}{\section*{Packages utilisés}}
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+# manipulation et visualisation de données
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(stringr)
+library(kableExtra)
+library(gt)
+library(ggpubr)
+library(corrplot)
+# lecture / écriture de fichiers
+library(readxl)
+library(writexl)
+# séries temporelles
+library(timeSeries)
+library(xts)
+library(zoo)
+library(TTR)
+library(quantmod)
+library(tidyquant)
+library(PerformanceAnalytics)
+# optimisation de portefeuille
+library(fPortfolio)
+library(PortfolioAnalytics)
+library(quadprog)
+library(CVXR)
+library(ROI)
+library(ROI.plugin.quadprog)
+# Autres outils
+library(rvest)
+```
+
+
+```{=tex}
+\newpage
+\thispagestyle{empty} % On enlève les en-têtes pour cette page spéciale
+
+\begin{tikzpicture}[remember picture, overlay]
+    % Rappel du cadre décoratif (optionnel, pour rester cohérent avec le reste)
+    \draw [deepblue, line width=2pt] ([shift={(10pt,-10pt)}]current page.north west) rectangle ([shift={(-10pt,10pt)}]current page.south east);
+    
+    % Bloc central
+    \node[anchor=center] at (current page.center) {
+        \begin{minipage}{0.8\textwidth}
+            \centering
+            \textcolor{MidnightBlue}{\rule{\linewidth}{2pt}}\\[0.5cm]
+            {\fontsize{40}{48}\selectfont \scshape \textcolor{MidnightBlue}{Partie I}} \\[0.8cm]
+            {\fontsize{24}{30}\selectfont \bfseries \textcolor{darkblue}{La Théorie Moderne du Portefeuille de Markowitz}} \\[0.5cm]
+            \textcolor{orange!80!black}{\large \textit{« Diversification et Frontière Efficiente »}} \\[0.5cm]
+            \textcolor{MidnightBlue}{\rule{\linewidth}{2pt}}
+        \end{minipage}
+    };
+    
+    % Petit filigrane ou icône en bas (optionnel)
+    \node[opacity=0.1, anchor=south east] at ([shift={(-30pt,40pt)}]current page.south east) {
+        \includegraphics[width=100pt]{ressource/image/ENSAE-Dakar-logo.png}
+    };
+\end{tikzpicture}
+
+\newpage
+
+\thispagestyle{fancy} % On rétablit le style normal pour la suite
+```
+
+
+\textcolor{MidnightBlue}{\section{Exercice 1 : La théorie de Markowitz (Février 2019 - Février 2026) }}
+
+Objectif : Constituer un portefeuille optimal en utilisant la théorie de diversification de Markowitz
+
+\textcolor{MidnightBlue}{\subsection{Sélection de titres }}
+
+ Choisissez 12 actions réparties dans 6 secteurs différents
+ (Finance, Distribution, Agriculture, Industrie, Services, Transport) cotées
+ à la BRVM ou un autre marché (CAC, S&P 500, etc.) et justifiez ce choix.
+
+Nous travaillons sur le **S&P 500** (marché américain) pour les raisons suivantes :
+
+- Disponibilité des données historiques sur 7 ans
+
+- Liquidité élevée des titres
+
+- Représentativité sectorielle
+
+- Facilité de comparaison avec la littérature académique
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE}
+# Définition des tickers
+tickers <- c("AAPL", "MSFT", "JNJ", "UNH",
+"JPM","V","PG", "KO", "XOM",
+"CVX", "HON", "CAT")
+
+# Informations sectorielles
+entreprises <- data.frame(
+Ticker = tickers,
+Nom = c("Apple Inc.", "Microsoft Corp.", 
+"Johnson & Johnson", "UnitedHealth Group",
+"JPMorgan Chase", "Visa Inc.",
+"Procter & Gamble", "Coca-Cola Co.",
+"Exxon Mobil", "Chevron Corp.",
+"Honeywell", "Caterpillar Inc."),
+Secteur = c("Technologie", "Technologie",
+"Santé", "Santé",
+"Finance", "Finance", "Consommation",
+"Consommation","Énergie", "Énergie",
+"Industrie", "Industrie")
+)
+
+knitr::kable(entreprises,
+caption = "Portefeuille initial")
+```
+
+
+\begin{center}
+\renewcommand{\arraystretch}{0.8}
+\begin{tabularx}{\linewidth}{|X|X|X|X|}
+\hline
+\rowcolor{darkblue}
+\color{white}\textbf{Secteur} & \color{white}\textbf{Entreprise} & \color{white}\textbf{Ticker} & \color{white}\textbf{Justification} \\
+\hline
+\rowcolor{gray!10} \textbf{Technologie} & Apple Inc. & AAPL & Leader mondial, croissance stable \\
+\rowcolor{white} & Microsoft Corp. & MSFT & Domination cloud et logiciel \\
+\hline
+\rowcolor{gray!10} \textbf{Santé} & Johnson \& Johnson & JNJ & Diversification santé, dividende stable \\
+\rowcolor{white} & UnitedHealth Group & UNH & Leader assurance santé, croissance \\
+\hline
+\rowcolor{gray!10} \textbf{Finance} & JPMorgan Chase & JPM & Banque systémique, résilience \\
+\rowcolor{white} & Visa Inc. & V & Leader paiements électroniques \\
+\hline
+\rowcolor{gray!10} \textbf{Consommation} & Procter \& Gamble & PG & Produits de base, résilience économique \\
+\rowcolor{white} & Coca-Cola Co. & KO & Marque globale, cash flow stable \\
+\hline
+\rowcolor{gray!10} \textbf{Énergie} & Exxon Mobil & XOM & Major pétrolier, sensibilité aux prix \\
+\rowcolor{white} & Chevron Corp. & CVX & Diversification énergétique \\
+\hline
+\rowcolor{gray!10} \textbf{Industrie} & Honeywell & HON & Diversification industrielle \\
+\rowcolor{white} & Caterpillar Inc. & CAT & Baromètre de l'activité économique \\
+\hline
+\end{tabularx}
+\end{center}
+
+
+
+
+
+\textcolor{MidnightBlue}{\subsection{Collecte de données }}
+
+Objectif : Téléchargez les cours historiques mensuels des 7 dernières années (Mars 2019 - Février 2026) 
+
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE}
+# Période d'analyse
+date_debut <- "2019-03-01"
+date_fin <- "2026-02-28"
+
+# Téléchargement des prix mensuels
+prix_mensuels <- tq_get(tickers,
+from = date_debut,
+to = date_fin,
+get = "stock.prices",
+period = "monthly")
+
+# Visualisation des prix
+ggplot(prix_mensuels, aes(x = date,
+y = adjusted, color = symbol)) +
+geom_line(linewidth = 1) +
+labs(title = "Évolution des prix des 12 actions",
+subtitle = "Mars 2019 - Février 2026",
+x = "Date", y = "Prix ajusté (USD)",
+color = "Ticker") +
+theme_minimal() +
+theme(legend.position = "bottom")
+```
+
+\textcolor{MidnightBlue}{\subsection{Calculs}}
+ 
+ Déterminez les rendements mensuels moyens et la matrice de covariance entre les actifs
+
+3.1.1 Rendements mensuels
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE}
+# Calcul des rendements mensuels
+rendements <- prix_mensuels %>%
+group_by(symbol) %>%
+tq_transmute(select = adjusted,
+mutate_fun = periodReturn,
+period = "monthly",
+type = "arithmetic",
+col_rename = "rendement") %>%
+mutate(rendement = rendement * 100)
+
+# Rendements mensuels moyens
+rendements_moyens <- rendements %>%
+group_by(symbol) %>%
+summarise(
+rendement_moyen = mean(rendement),
+volatilite = sd(rendement),
+sharpe = rendement_moyen / volatilite
+) %>%
+arrange(desc(rendement_moyen))
+
+knitr::kable(rendements_moyens, 
+caption = "Rendements mensuels (moyens
+) et volatilités (2019-2026)",
+digits = 2)
+```
+
+3.1.2 Matrice de covariance
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE}
+# Transformation en format large
+rendements_large <- rendements %>%
+select(symbol, date, rendement) %>%
+pivot_wider(names_from = symbol,
+            values_from = rendement)
+
+# Matrice de covariance
+cov_matrix <- rendements_large %>%
+select(-date) %>%
+cov(use = "complete.obs")
+```
+
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE,fig.width=5}
+# Affichage de la matrice de covariance
+knitr::kable(cov_matrix,
+caption = "Matrice de covariance des rendements",
+digits = 2)%>%kable_styling(font_size = 6)
+```
+
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE}
+cor_matrix <- rendements_large %>%
+select(-date) %>%
+cor(use = "complete.obs")
+
+corrplot(cor_matrix, method = "color",
+type = "upper", 
+tl.col = "black", tl.srt = 45,
+title = "Matrice de corrélation des rendements",
+mar = c(0,0,1,0))
+```
+
+\textcolor{MidnightBlue}{\subsection{Optimisation - Frontière efficiente}}
+
+Objectif : Déterminez la frontière efficiente via R ou Excel.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{|X|X|}
+\hline
+\rowcolor{darkblue}
+\color{white}\textbf{Concept} & \color{white}\textbf{Formule} \\[2pt]
+\hline
+\rowcolor{gray!10} Rendement simple & $R_{i,t} = \dfrac{P_{i,t}}{P_{i,t-1}} - 1$ \\[2pt]
+\hline
+\rowcolor{white} Rendement logarithmique & $r_{i,t} = \ln\left(\dfrac{P_{i,t}}{P_{i,t-1}}\right)$ \\[2pt]
+\hline
+\rowcolor{gray!10} Rendement moyen & $\bar{R}_i = \dfrac{1}{T} \sum_{t=1}^{T} R_{i,t}$ \\[2pt]
+\hline
+\rowcolor{white} Variance & $\sigma_i^2 = \dfrac{1}{T-1} \sum_{t=1}^{T} (R_{i,t} - \bar{R}_i)^2$ \\[2pt]
+\hline
+\rowcolor{gray!10} Covariance & $\sigma_{ij} = \dfrac{1}{T-1} \sum_{t=1}^{T} (R_{i,t} - \bar{R}_i)(R_{j,t} - \bar{R}_j)$ \\[2pt]
+\hline
+\rowcolor{white} Corrélation & $\rho_{ij} = \dfrac{\sigma_{ij}}{\sigma_i \sigma_j}$ \\[2pt]
+\hline
+\rowcolor{gray!10} Rendement portefeuille & $E(R_p) = \mathbf{w}^T \mathbf{\bar{R}}$ \\[2pt]
+\hline
+\rowcolor{white} Variance portefeuille & $\sigma_p^2 = \mathbf{w}^T \Sigma \mathbf{w}$ \\[2pt]
+\hline
+\end{tabularx}
+\end{center}
+
+4.1.1 Construction de la frontière efficiente avec fPortfolio
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE}
+# Convertir en timeSeries
+rendements_ts <- as.timeSeries(
+  rendements_large %>% select(-date))
+
+# Spécification du portefeuille
+spec <- portfolioSpec()
+setSolver(spec) <- "solveRquadprog"
+
+# Contraintes (pas de vente à découvert)
+constraints <- "LongOnly"
+
+# Calcul de la frontière efficiente
+frontier <- portfolioFrontier(
+rendements_ts, spec, constraints)
+
+# Visualisation de la frontière
+plot(frontier, which = 1,
+main = "Frontière Efficiente de Markowitz")
+plot(frontier, which = 3,
+main = "Frontière Efficiente avec points")
+```
+
+4.1.2 Extraction des portefeuilles optimaux
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE}
+# Portefeuille à risque minimal
+min_risk_portfolio <- minvariancePortfolio(
+  rendements_ts, spec, constraints)
+
+# Portefeuille tangents (Sharpe maximal)
+# Taux sans risque mensuel (3% annualisé)
+rf_monthly <- 0.03 / 12
+
+spec_tangent <- portfolioSpec()
+setSolver(spec_tangent) <- "solveRquadprog"
+setRiskFreeRate(spec_tangent) <- rf_monthly 
+
+# Calcul du portefeuille tangent
+tangent_portfolio <- tangencyPortfolio(
+rendements_ts, spec_tangent, constraints)
+
+```
+
+4.1.3 Poids des portefeuilles optimaux
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE}
+# Poids du portefeuille à risque minimal
+weights_min_risk <- getWeights(
+  min_risk_portfolio)
+poids_min_risk <- data.frame(
+  Actif = tickers,
+  Poids = round(as.numeric(
+    weights_min_risk) * 100, 2)
+) %>% arrange(desc(Poids))
+
+# Poids du portefeuille tangent
+weights_tangent <- getWeights(
+tangent_portfolio)
+poids_tangent <- data.frame(
+Actif = tickers,
+Poids = round(as.numeric(
+weights_tangent) * 100, 2)
+) %>% arrange(desc(Poids))
+
+# Affichage
+knitr::kable(poids_min_risk, 
+caption = "Composition du portefeuille à risque (
+minimal)",
+digits = 2)
+
+knitr::kable(poids_tangent, 
+caption = "Composition du portefeuille tangent (
+Sharpe maximal)",
+digits = 2)
+```
+
+\textcolor{MidnightBlue}{\subsection{Actif sans risque}}
+
+ Intégrez un actif sans risque en justifiant le taux retenu selon la
+zone géographique (UEMOA, France, USA, etc.) puis déterminer la nouvelle
+frontière efficiente.
+
+
+5.1.1 Justification du taux sans risque
+
+Pour le marché américain, nous retenons le rendement des **obligations d'État américaines à 10 ans (US Treasury 10Y)** comme proxy de l'actif sans risque.
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE}
+getSymbols("^TNX", from = "2019-03-01",
+           to = "2026-02-28")
+
+# Calcul du taux moyen sur la période
+tnx_data <- na.omit(TNX$TNX.Adjusted)
+rf_annuel <- mean(tnx_data) / 100  
+rf_mensuel <- rf_annuel / 12
+
+cat("Taux sans risque (TNX) :",
+    round(rf_annuel * 100, 2), "%\n")
+```
+
+5.1.2 Frontière efficiente avec actif sans risque
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE}
+plot(frontier, which = 1,
+main = "Frontière Efficiente avec Actif (Sans
+Risque)")
+```
+
+
+```{=tex}
+\newpage
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture, overlay]
+    % 1. Cadre extérieur (Bleu profond)
+    \draw [deepblue, line width=2pt] ([shift={(10pt,-10pt)}]current page.north west) rectangle ([shift={(-10pt,10pt)}]current page.south east);
+    
+    % 2. Bloc central du titre
+    \node[anchor=center] at (current page.center) {
+        \begin{minipage}{0.8\textwidth}
+            \centering
+            \textcolor{MidnightBlue}{\rule{\linewidth}{2pt}}\\[0.5cm]
+            {\fontsize{40}{48}\selectfont \scshape \textcolor{MidnightBlue}{Partie II}} \\[0.8cm]
+            {\fontsize{24}{30}\selectfont \bfseries \textcolor{darkblue}{L'Analyse Fondamentale}} \\[0.5cm]
+            \textcolor{ForestGreen}{\large \textit{« De la valeur intrinsèque à la décision d'investissement »}} \\[0.5cm]
+            \textcolor{MidnightBlue}{\rule{\linewidth}{2pt}}
+        \end{minipage}
+    };
+
+    % 3. FILIGRANE (Logo rehaussé)
+    % On utilise 'opacity=0.1' pour la discrétion et 'shift={(-30pt,100pt)}' pour le monter
+    \node[opacity=0.1, anchor=south east] at ([shift={(-30pt,100pt)}]current page.south east) {
+        \includegraphics[width=100pt]{ressource/image/ENSAE-Dakar-logo.png}
+    };
+    
+\end{tikzpicture}
+
+\newpage
+\thispagestyle{fancy}
+```
+
+\textcolor{MidnightBlue}{\section{Exercice 2 : Les stratégies fondamentales (Mars 2019 - Février 2026)}}
+
+Objectif : Construire un portefeuille basé sur l’analyse fondamentale des entreprises.
+
+
+
+ \textcolor{MidnightBlue}{\subsection{Sélection des titres}}
+ 
+ Identifiez un échantillon d’entreprises ayant publié leurs états financiers
+(indicateurs PER, ROE, dividend yield, dette nette/EBITDA, etc).
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE,output="axis"}
+# Échantillon élargi à 30 entreprises du S&P 500
+entreprises <- data.frame(
+  Ticker = c("AAPL", "MSFT", "GOOGL", "AMZN",
+   "META","JNJ", "JPM", "V", "PG", "UNH",
+   "HD", "MA", "XOM", "KO", "WMT",
+   "ABBV", "NFLX", "TSLA", "NVDA", "BAC",
+   # Nouvelles entreprises ajoutées
+   "CVX", "PFE", "MRK", "TMO", "ACN",
+   "CRM", "ORCL", "QCOM", "TXN", "COST",
+   "LLY", "BLK", "AXP", "CAT", "IBM"),
+  
+  Nom = c("Apple Inc.", "Microsoft Corp.",
+  "Alphabet Inc.", "Amazon.com Inc.",
+  "Meta Platforms Inc.","Johnson & Johnson",
+  "JPMorgan Chase & Co.","Visa Inc.",
+  "Procter & Gamble Co.",
+  "UnitedHealth Group Inc.",
+  "Home Depot Inc.", "Mastercard Inc.",
+  "Exxon Mobil Corp.", "Coca-Cola Co.",
+  "Walmart Inc.","AbbVie Inc.", 
+  "Netflix Inc.", "Tesla Inc.",
+  "NVIDIA Corp.", "Bank of America Corp.",
+  "Chevron Corp.", "Pfizer Inc.", 
+  "Merck & Co.", "Thermo Fisher Scientific", 
+  "Accenture plc","Salesforce Inc.",
+  "Oracle Corp.","Qualcomm Inc.",
+  "Texas Instruments", "Costco Wholesale",
+  "Eli Lilly and Co.", "BlackRock Inc.",
+  "American Express Co.", "Caterpillar Inc.",
+  "International Business Machines"),
+  
+  Secteur = c("Technologie", "Technologie",
+  "Technologie", "Consommation Discr.",
+  "Technologie",
+  "Santé", "Finance", "Finance",
+  "Consommation", "Santé",
+  "Consommation Discr.", "Finance", 
+  "Énergie", "Consommation", "Consommation",
+  "Santé", "Technologie", "Automobile",
+  "Technologie", "Finance",
+  "Énergie", "Santé", "Santé", 
+  "Santé", "Technologie",
+  "Technologie", "Technologie", "Technologie",
+  "Technologie", "Consommation",
+  "Santé", "Finance", "Finance",
+  "Industrie", "Technologie"),
+  stringsAsFactors = FALSE
+)
+
+# Afficher les 30 entreprises
+print("Échantillon de 30 entreprises :")
+knitr::kable(entreprises, caption = "Échantillon
+ initial de 30 entreprises du S&P 500")
+```
+
+
+
+```{r,echo=TRUE,eval=FALSE,comment="",warning=FALSE,message=FALSE,output="axis"}
+# Import yfinance
+yf <- import("yfinance")
+
+get_info_robust <- function(ticker,
+max_retries = 3) {
+for (attempt in 1:max_retries) {
+tryCatch({
+  # Petite pause pour éviter de surcharger l'API
+  Sys.sleep(0.5)
+  
+  # Récupérer le ticker
+  tkr <- yf$Ticker(ticker)
+  
+  # Récupérer les informations
+  info <- py_to_r(tkr$info)
+  
+  # Extraire les valeurs avec gestion des NULL
+  per <- ifelse(is.null(info[["trailingPE"]])
+      , NA, as.numeric(info[["trailingPE"]]))
+  div_yield <- ifelse(
+    is.null(info[["dividendYield"]])
+      , NA, as.numeric(info[["dividendYield"]]))
+  roe <- ifelse(is.null(info[["returnOnEquity"]])
+      , NA, as.numeric(info[["returnOnEquity"]]))
+  # Retourner le résultat
+  return(data.frame(
+    Ticker = ticker,
+    PER = per,
+    DividendYield = div_yield,
+    ROE = roe,
+    stringsAsFactors = FALSE
+  ))
+  
+}, error = function(e) {
+if (attempt == max_retries) {
+warning(paste("Échec pour", ticker,
+"après", max_retries, "tentatives:", e$message))
+return(data.frame(
+  Ticker = ticker,
+  PER = NA,
+  DividendYield = NA,
+  ROE = NA,
+  stringsAsFactors = FALSE
+))
+  } else {
+    # Attendre avant de réessayer
+    Sys.sleep(2)
+    return(NULL)
+  }
+})
+}
+}
+
+# Utiliser une boucle avec progression
+fundamentaux_list <- list()
+
+for (i in 1:nrow(entreprises)) {
+  ticker <- entreprises$Ticker[i]
+  cat(sprintf("Traitement de %s (%d/%d)...\n",
+  ticker, i, nrow(entreprises)))
+  
+  result <- get_info_robust(ticker)
+  if (!is.null(result)) {
+    fundamentaux_list[[ticker]] <- result
+  }
+  
+  # Pause plus longue entre les appels
+  Sys.sleep(1)
+}
+
+# Combiner tous les résultats
+fundamentaux <- do.call(rbind, fundamentaux_list)
+
+# Nettoyer les données
+fundamentaux <- fundamentaux %>%
+  mutate(
+    # Convertir les virgules en points
+  PER = as.numeric(gsub(",",
+      ".",as.character(PER))),
+  DividendYield = as.numeric(gsub(",",
+      ".", as.character(DividendYield))),
+  ROE = as.numeric(gsub(",",
+      ".", as.character(ROE)))
+  )
+```
+A travers cette commande l'on obtient les données fondamentales de 30 entreprises du S&P 500, couvrant divers secteurs tels que la technologie, la santé, la finance, l'énergie et la consommation. Ces données incluent les indicateurs financiers clés tels que le PER (Price-to-Earnings Ratio), le rendement du dividende (Dividend Yield) et le ROE (Return on Equity). L'échantillon est conçu pour offrir une diversité sectorielle tout en se concentrant sur des entreprises de grande capitalisation, ce qui permet une analyse fondamentale robuste pour la construction d'un portefeuille d'investissement.
+Nous allons enregistrer sous excel les données fondamentales de ces entreprises pour une analyse plus rapide et éviter les latences.
+
+```{r,eval=FALSE,echo=TRUE,comment="",warning=FALSE,message=FALSE,output="axis"}
+write_xlsx(fundamentaux, "fundamentaux.xlsx")
+
+```
+
+
+```{r,echo=FALSE,comment="",warning=FALSE,message=FALSE}
+
+fundamentaux <- read_excel("C:/Users/hp/Desktop/ISEP2/Second Semestre/R/Traoré_Sié_Rachid_GESTION_PORTEFEUILLE_ISE_2026/Traoré_Sié_Rachid_GESTION_PORTEFEUILLE_ISE_2026/fundamentaux.xlsx")
+
+fundamentaux <- fundamentaux %>% na.omit()
+fundamentaux
+
+```
+
+
+
+ \textcolor{MidnightBlue}{\subsection{Filtrage}} 
+
+  Le choix des critères de sélection de 10 entreprises repose sur les principes fondamentaux de l'analyse financière et de la gestion de portefeuille \textit{value investing} :
+
+\begin{itemize}
+    \item \textbf{PER (Price-to-Earnings) compris entre 10 et 35} : Le PER est un indicateur clé de valorisation. Un PER inférieur à 10 peut signaler une entreprise en difficulté ou un \textit{value trap} (piège à valeur). Un PER supérieur à 35 indique généralement une surévaluation, caractéristique des valeurs de croissance excessive. La fourchette 10-35 permet de capturer des entreprises avec un potentiel de croissance raisonnable tout en évitant les extrêmes de valorisation.
+    \item \textbf{ROE (Return on Equity) supérieur à 15\%} : Le ROE mesure la rentabilité des capitaux propres. Un ROE $>$ 15\% est considéré comme excellent dans l'industrie, indiquant que l'entreprise génère efficacement des bénéfices à partir des investissements des actionnaires. Ce seuil garantit une sélection d'entreprises financièrement performantes et bien gérées.
+    \item \textbf{Dividend Yield supérieur à 1\%} : Le rendement du dividende assure un revenu régulier pour l'investisseur. Un seuil de 1\% permet d'écarter les entreprises qui ne redistribuent pas de valeur aux actionnaires, tout en restant accessible même dans un environnement de taux bas. Ce critère est particulièrement important pour une stratégie fondamentale qui valorise le retour sur investissement tangible.
+\end{itemize}
+
+Ces critères sont complémentaires : le PER évalue le prix, le ROE évalue la qualité de la gestion, et le dividende assure un rendement immédiat. Leur combinaison permet de sélectionner des entreprises fondamentalement solides, correctement valorisées et rémunératrices pour l'actionnaire.
+
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE}
+selected_10 <- subset(fundamentaux, 
+            PER >= 10 & PER <= 35 & 
+            ROE >= 0.15 & 
+            DividendYield >= 1)
+selected_10 <- selected_10[order(
+selected_10$PER), ]
+selected_10 <- head(selected_10, 10)
+
+selected_10
+```
+_**Description des 10 entreprises sélectionnées**_
+
+**JPM - JPMorgan Chase & Co. (Finance)**:
+
+Leader mondial de la banque et des services financiers. L'entreprise dispose d'un bilan solide, d'une diversification exceptionnelle entre banque d'investissement, banque de détail et gestion d'actifs, et bénéficie d'une gestion reconnue comme l'une des meilleures du secteur. Sa rentabilité est soutenue par des frais de gestion élevés et une maîtrise des risques.
+
+**ACN - Accenture plc (Technologie)**:
+
+Géant mondial du conseil en stratégie, technologie et services numériques. L'entreprise profite de la transformation numérique des entreprises, avec des contrats récurrents à forte valeur ajoutée. Son modèle d'affaires génère des marges élevées et une excellente génération de cash-flow.
+
+**MRK - Merck & Co. Inc. (Santé)**:
+
+Laboratoire pharmaceutique majeur avec un portefeuille diversifié de médicaments. L'entreprise est particulièrement reconnue pour ses traitements en oncologie et immunologie. Son ROE élevé reflète sa capacité à développer et commercialiser des médicaments à forte valeur ajoutée avec des marges importantes.
+
+**AXP - American Express Company (Finance)**:
+
+Société de services financiers spécialisée dans les cartes de paiement premium. Amex se distingue par sa clientèle aisée, ses revenus diversifiés (commissions, intérêts) et son modèle d'affaires vertueux. La marque bénéficie d'une forte notoriété et d'une grande fidélité de sa clientèle.
+
+**PG - Procter & Gamble Co. (Consommation)**:
+
+Géant mondial des biens de consommation courante avec un portefeuille de marques emblématiques. L'entreprise bénéficie d'un pouvoir de fixation des prix élevé, d'une demande stable et récurrente, et d'une présence mondiale qui lui confère des économies d'échelle significatives.
+
+**JNJ - Johnson & Johnson (Santé)**
+
+Conglomérat diversifié dans les produits pharmaceutiques, les dispositifs médicaux et les produits de consommation. L'entreprise est reconnue pour la qualité de sa gestion, la stabilité de ses flux de trésorerie et sa capacité à maintenir des dividendes croissants depuis plusieurs décennies.
+
+**IBM - International Business Machines Corp. (Technologie)**:
+
+Entreprise historique de la technologie, désormais recentrée sur le cloud hybride et l'intelligence artificielle. La transformation stratégique vers les services à forte valeur ajoutée et les solutions d'entreprise offre un nouveau potentiel de croissance, avec une base de clients fidèles et des contrats récurrents.
+
+**HD - The Home Depot Inc. (Consommation)**:
+
+Leader mondial de la distribution de matériaux et d'équipements pour l'amélioration de l'habitat. L'entreprise bénéficie d'une position dominante sur son marché, de la résilience du secteur du bricolage et d'une excellente gestion de sa chaîne d'approvisionnement.
+
+**KO - The Coca-Cola Company (Consommation)**:
+
+Emblème mondial des boissons non alcoolisées avec un portefeuille de marques iconiques. L'entreprise dispose d'un réseau de distribution inégalé, d'un pouvoir de fixation des prix exceptionnel et d'une génération de cash-flow très stable. Sa présence mondiale et la récurrence de ses produits en font une valeur défensive.
+
+**QCOM - Qualcomm Inc. (Technologie)**:
+
+Leader des semi-conducteurs et des licences de technologies sans fil. L'entreprise est au cœur de l'écosystème de la 5G et des communications mobiles. Son modèle d'affaires combine la vente de puces et des revenus de licences de brevets très marginaux, lui assurant une rentabilité structurellement élevée.
+
+ \textcolor{MidnightBlue}{\subsection{Allocation de poids}} 
+ 
+ Attribuez des poids en fonction de la robustesse des fondamentaux et des perspectives sectorielles.
+
+
+\subsubsection*{Méthodologie d'allocation}
+
+L'allocation des poids repose sur un score composite intégrant trois dimensions fondamentales :
+
+\begin{itemize}
+    \item \textbf{ROE (Return on Equity)} : mesure de la rentabilité des capitaux propres (pondération 40\%)
+    \item \textbf{PER (Price-to-Earnings)} : mesure de la valorisation, utilisé en inverse (pondération 35\%)
+    \item \textbf{Dividend Yield} : mesure du rendement pour l'actionnaire (pondération 25\%)
+\end{itemize}
+
+Les perspectives sectorielles viennent ensuite ajuster ces poids pour refléter les opportunités de croissance et la résilience des différents secteurs économiques.
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE}
+Secteur = c("Finance", "Technologie",
+    "Santé", "Finance", 
+    "Consommation", "Santé", 
+    "Technologie", "Consommation",
+    "Consommation", "Technologie")
+
+selected_10$secteur <- Secteur
+```
+
+Calcul d'un score composite et des poids
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE}
+allocation <- selected_10 %>%
+mutate(
+# Normalisation des indicateurs (échelle 0-1)
+score_roe = ROE / max(ROE),
+score_per = (1/PER) / max(1/PER),
+score_div = DividendYield / max(DividendYield),
+
+# Score composite (40% ROE, 35% PER, 25% Dividende)
+score_final = (score_roe * 0.40) +
+(score_per * 0.35) + (score_div * 0.25),
+
+# Poids initiaux
+poids_init = score_final / sum(score_final),
+poids_pct_init = round(poids_init * 100, 2)
+)
+
+```
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE}
+allocation_finale <- allocation %>%
+mutate(
+# Coefficients sectoriels justifiés
+coeff_secteur = case_when(
+  secteur == "Technologie" ~ 1.20,
+  # Croissance forte
+  secteur == "Santé" ~ 1.15, 
+  # Résilience, demande inélastique
+  secteur == "Finance" ~ 1.00,
+  # Secteur mature mais stable
+  secteur == "Consommation" ~ 0.85,
+  # Concurrence forte, marges compressées
+  TRUE ~ 1.00
+),
+# Poids après ajustement
+poids_ajuste = poids_init * coeff_secteur,
+poids_final = poids_ajuste / sum(poids_ajuste),
+poids_pct = round(poids_final * 100, 2)
+) %>%
+arrange(desc(poids_final))
+
+```
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE}
+knitr::kable(allocation_finale %>%
+select(Ticker, secteur, score_roe,
+score_per, score_div,score_final,
+coeff_secteur, poids_pct),
+caption = "Allocation du portefeuille
+selon la robustesse des fondamentaux",
+digits = 2) %>%
+kable_styling(font_size = 6) 
+```
+
+
+\subsubsection*{Justification des pondérations sectorielles}
+
+\begin{itemize}
+    \item \textbf{Technologie (coeff 1,20)} : Secteur porteur bénéficiant de la transformation numérique, de l'IA et du cloud. Les entreprises comme Accenture et IBM sont bien positionnées sur ces tendances structurelles.
+    \item \textbf{Santé (coeff 1,15)} : Secteur défensif avec une demande inélastique, bénéficiant du vieillissement démographique et de l'innovation médicale. Merck et Johnson \& Johnson affichent des ROE élevés.
+    \item \textbf{Finance (coeff 1,00)} : Secteur mature mais stable, avec des valorisations attractives. JPMorgan et American Express bénéficient de fondamentaux solides.
+    \item \textbf{Consommation (coeff 0,85)} : Secteur sous-pondéré en raison de marges compressées et de la concurrence accrue, bien que Procter \& Gamble, Coca-Cola et Home Depot restent des valeurs de qualité.
+\end{itemize}
+
+
+\textcolor{MidnightBlue}{\subsection{Évaluation de la performance}}
+
+Analysez la performance du portefeuille sur les 12 derniers mois (Mars 2025 - Février 2026).
+
+\subsubsection*{Collecte des données de cours}
+
+La performance du portefeuille est évaluée sur la période du 1er mars 2025 au 28 février 2026. Les rendements sont calculés à partir des cours de clôture ajustés des dividendes.
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE}
+# Définition de la période
+start_date <- as.Date("2025-03-01")
+end_date <- as.Date("2026-02-28")
+
+# Tickers du portefeuille
+portfolio_tickers <- allocation_finale$Ticker
+
+# Récupération des cours historiques
+price_data <- tq_get(portfolio_tickers,
+     from = start_date,
+     to = end_date,
+     get = "stock.prices")
+```
+
+
+
+```{r}
+
+# Graphique des prix ajustés
+price_data %>%
+  ggplot(aes(x = date, y = adjusted,
+             color = symbol)) +
+  geom_line(size = 0.8) +
+  labs(
+    title = "Évolution des cours des actions",
+    subtitle = paste("Période :", start_date,
+                     "à", end_date),
+    x = "Date",
+    y = "Prix ajusté (USD)",
+    color = "Entreprises"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(
+      hjust = 0.5, face = "bold"),
+    plot.subtitle = element_text(
+      hjust = 0.5)
+  ) +
+  scale_color_brewer(palette = "Set3")
+
+```
+
+
+\subsubsection*{Calcul des rendements et performance du portefeuille}
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE}
+# Calcul des rendements journaliers
+returns <- price_data %>%
+group_by(symbol) %>%
+tq_transmute(select = adjusted,
+   mutate_fun = periodReturn,
+   period = "daily",
+   col_rename = "daily_return")
+
+# Ajout des poids
+portfolio_returns <- returns %>%
+left_join(allocation_finale %>% 
+   select(Ticker, poids_final), 
+   by = c("symbol" = "Ticker")) %>%
+   group_by(date) %>%
+summarise(portfolio_return = sum(
+  daily_return * poids_final, na.rm = TRUE))
+```
+
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE}
+# Conversion en xts avec xts()
+portfolio_xts <- xts(
+  portfolio_returns$portfolio_return, 
+  order.by = portfolio_returns$date)
+
+
+# Métriques de performance
+cumulative_return <- Return.cumulative(
+  portfolio_xts)
+annualized_return <- Return.annualized(
+  portfolio_xts)
+annualized_volatility <- StdDev.annualized(
+  portfolio_xts)
+sharpe_ratio <- SharpeRatio.annualized(
+  portfolio_xts, Rf = 0)
+
+```
+
+
+\textcolor{MidnightBlue}{\subsection{Comparaison des performances}}
+
+Comparez les résultats à l'indice de marché (BRVM Composite, CAC 40, S\&P 500) via le ratio de Sharpe avec le portefeuille construit sur la base d'une stratégie fondamentale.
+
+```{r,echo=TRUE,comment="",warning=FALSE,message=FALSE}
+# Récupération des indices de référence
+benchmarks <- c("^GSPC" = "S&P 500") 
+
+# Récupération des cours des indices
+benchmark_data <- tq_get(names(benchmarks),
+             from = start_date,
+             to = end_date,
+             get = "stock.prices")
+
+# Calcul des rendements des benchmarks
+benchmark_returns <- benchmark_data %>%
+group_by(symbol) %>%
+tq_transmute(select = adjusted,
+   mutate_fun = periodReturn,
+   period = "daily",
+   col_rename = "benchmark_return")
+
+# Ajout des noms des indices
+benchmark_returns <- benchmark_returns %>%
+mutate(benchmark_name = benchmarks[symbol])
+
+# Calcul des métriques pour chaque benchmark
+benchmark_metrics <- benchmark_returns %>%
+group_by(benchmark_name) %>%
+summarise(
+return_cumul = prod(1 + benchmark_return) - 1,
+return_ann = (1 + return_cumul)^(252/n()) - 1,
+vol_ann = sd(benchmark_return) * sqrt(252),
+sharpe = return_ann / vol_ann
+)
+
+# Combinaison avec les métriques du portefeuille
+comparison <- data.frame(
+Portefeuille = c("Portefeuille fondamental",
+"S&P 500"), Rendement = c(
+annualized_return * 100,
+benchmark_metrics$return_ann[
+(benchmark_metrics$benchmark_name == "S&P 500"
+)] * 100),Volatilité = c(
+annualized_volatility * 100,
+benchmark_metrics$vol_ann[(
+benchmark_metrics$benchmark_name == "S&P 500"
+)] * 100),Sharpe = c(sharpe_ratio,
+benchmark_metrics$sharpe[(
+benchmark_metrics$benchmark_name == "S&P 500"
+)])
+)
+
+# Affichage des résultats
+knitr::kable(comparison, 
+   caption = "Comparaison
+   des performances : Portefeuille vs Indices",
+             digits = 3)
+```
+
+
+```{r}
+
+# 1. Calcul des performances cumulées du portefeuille
+# À partir de vos données existantes
+portfolio_cumul <- portfolio_returns %>%
+  mutate(portfolio_cumul = cumprod(1 + portfolio_return))
+
+# 2. Calcul des performances cumulées du S&P 500
+# À partir de vos données benchmark_returns
+benchmark_cumul <- benchmark_returns %>%
+  mutate(benchmark_cumul = cumprod(1 + benchmark_return))
+
+# 3. Fusion des deux séries
+comparison_data <- portfolio_cumul %>%
+  select(date, portfolio_cumul) %>%
+  left_join(benchmark_cumul %>% select(date, benchmark_cumul), by = "date")
+
+# 4. Graphique
+ggplot(comparison_data, aes(x = date)) +
+  geom_line(aes(y = portfolio_cumul, color = "Portefeuille fondamental"), size = 1.2) +
+  geom_line(aes(y = benchmark_cumul, color = "S&P 500"), size = 1.2) +
+  labs(
+    title = "Performance comparée : Portefeuille fondamental vs S&P 500",
+    subtitle = paste("Période :", format(start_date, "%d %B %Y"), "au", format(end_date, "%d %B %Y")),
+    x = "Date",
+    y = "Performance cumulée (base 1)",
+    color = ""
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 14),
+    plot.subtitle = element_text(hjust = 0.5, size = 10),
+    legend.text = element_text(size = 10),
+    axis.title = element_text(size = 11),
+    axis.text = element_text(size = 9)
+  ) +
+  scale_color_manual(values = c("Portefeuille fondamental" = "#2c3e50", 
+                                 "S&P 500" = "#e67e22")) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1))
+```
+
+**Rendement**
+
+Le portefeuille fondamental affiche un rendement de 6,97% sur la période d'analyse, tandis que le S&P 500 enregistre une performance nettement supérieure de 17,75%. Cet écart significatif de près de 11 points de pourcentage s'explique par la composition du portefeuille, qui privilégie des valeurs défensives et une diversification sectorielle, contrairement au S&P 500 qui est fortement concentré sur les valeurs technologiques (NVIDIA, Apple, Microsoft, Amazon) ayant largement surperformé sur la période. La stratégie fondamentale, en sélectionnant des entreprises aux fondamentaux solides mais moins spéculatives, a sacrifié une partie du rendement potentiel au profit de la stabilité.
+
+**Volatilité**
+
+La volatilité annualisée du portefeuille fondamental s'établit à 16,99%, légèrement inférieure à celle du S&P 500 qui atteint 18,49%. Cette différence de 1,5 point de pourcentage confirme l'objectif de la stratégie fondamentale : constituer un portefeuille plus résilient face aux fluctuations du marché. La moindre volatilité résulte de la diversification sectorielle (Technologie, Finance, Santé, Consommation) et de la sélection d'entreprises aux bilans solides et aux activités moins cycliques, comme Procter & Gamble, Johnson & Johnson ou Coca-Cola, qui jouent un rôle de stabilisateur en période d'incertitude.
+
+**Ratio de Sharpe**
+
+Le ratio de Sharpe, qui mesure la performance ajustée du risque, constitue l'indicateur le plus révélateur de la qualité de la stratégie d'investissement. Le S&P 500 affiche un ratio de 0,96, témoignant d'une excellente efficacité en termes de rendement par unité de risque. Le portefeuille fondamental présente un ratio de 0,41, soit moins de la moitié de celui du marché. Cette différence s'explique principalement par le rendement inférieur du portefeuille, qui n'a pas été suffisamment compensé par sa moindre volatilité. Autrement dit, le compromis rendement-risque du portefeuille fondamental est moins favorable que celui du marché sur la période analysée.
+
+
+La sous-performance du portefeuille fondamental par rapport au S&P 500 s'explique par trois facteurs principaux. Premièrement, la période analysée (Mars 2025 - Février 2026) a été marquée par une concentration des performances sur les grandes capitalisations technologiques, segment sous-pondéré dans le portefeuille. Deuxièmement, la stratégie fondamentale privilégie la qualité et la stabilité au détriment de la croissance spéculative, ce qui peut pénaliser les performances dans un marché orienté vers les valeurs de croissance. Troisièmement, l'ajustement sectoriel visant à surpondérer les secteurs défensifs (Santé) et à sous-pondérer la Consommation n'a pas permis de capter pleinement la dynamique du marché.
+
+
+Bien que le portefeuille fondamental ait atteint son objectif de réduction de la volatilité, il n'a pas su générer un rendement suffisant pour rivaliser avec le S&P 500 sur la période d'analyse. Le ratio de Sharpe inférieur indique que la stratégie de sélection basée sur les fondamentaux n'a pas été optimale dans le contexte de marché récent. Pour améliorer la performance, il conviendrait d'envisager une pondération accrue du secteur technologique, tout en maintenant les critères de robustesse financière qui garantissent la résilience à long terme du portefeuille.
+ 
+
+
+```{=tex}
+\newpage
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture, overlay]
+    % 1. Cadre extérieur (Bleu profond)
+    \draw [deepblue, line width=2pt] ([shift={(10pt,-10pt)}]current page.north west) rectangle ([shift={(-10pt,10pt)}]current page.south east);
+    
+    % 2. Bloc central du titre
+    \node[anchor=center] at (current page.center) {
+        \begin{minipage}{0.8\textwidth}
+            \centering
+            \textcolor{MidnightBlue}{\rule{\linewidth}{2pt}}\\[0.5cm]
+            {\fontsize{40}{48}\selectfont \scshape \textcolor{MidnightBlue}{Partie III}} \\[0.8cm]
+            {\fontsize{24}{30}\selectfont \bfseries \textcolor{darkblue}{L'Analyse Technique}} \\[0.5cm]
+            \textcolor{orange!80!black}{\large \textit{« Psychologie des foules et signaux algorithmiques »}} \\[0.5cm]
+            \textcolor{MidnightBlue}{\rule{\linewidth}{2pt}}
+        \end{minipage}
+    };
+
+    % 3. FILIGRANE (Logo rehaussé - Identique aux parties précédentes)
+    \node[opacity=0.1, anchor=south east] at ([shift={(-30pt,40pt)}]current page.south east) {
+        \includegraphics[width=100pt]{ressource/image/ENSAE-Dakar-logo.png}
+    };
+    
+\end{tikzpicture}
+
+\newpage
+\thispagestyle{fancy}
+```
+
+\textcolor{MidnightBlue}{\section{Exercice 3 : Les stratégies d’analyse technique (Mars 2019 - Février 2026)}}
+
+Objectif : Élaborer une stratégie de trading basée sur l’analyse technique.
+
+ \textcolor{MidnightBlue}{\subsection{Support de référence}}
+
+Objectif :Sélectionnez un indice composite de référence [BRVM, CAC 40, SP 500,
+etc.]
+
+Nous allons travailler sur le **S&P 500** (Standard & Poor's 500) comme indice de référence pour cette analyse. Le S&P 500 est l'un des indices boursiers les plus représentatifs de la performance des grandes entreprises américaines. Il couvre environ 80 % de la capitalisation boursière totale des États-Unis. Il est largement utilisé comme référence pour les stratégies d'analyse technique. La disponibilité des données historiques est excellente.Sa liquidité et sa diversification (500 entreprises de secteurs variés) en font un support pertinent pour le backtesting.La Période d'analyse couvre mars 2019 à février 2026 (période couvrant des conditions de marché variées : reprise post-COVID, inflation, cycle de taux d'intérêt).
+
+```{r,echo=TRUE,comment=""}
+getSymbols("^GSPC", from = "2019-03-01",
+           to = "2026-02-28")
+```
+
+```{r,echo=TRUE,comment=""}
+
+sp500_df <- data.frame(
+  date = index(GSPC),
+  close = as.numeric(Cl(GSPC))
+)
+
+
+ggplot(sp500_df, aes(x = date, y = close)) +
+  geom_line(color = "darkblue", linewidth = 1) +
+  labs(
+    title = "S&P 500 - Évolution 
+    des prix de clôture",
+    subtitle = "Période : Mars 2019 -
+    Février 2026",
+    x = "Date",
+    y = "Prix de clôture (USD)"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5
+                              , face = "bold"),
+    plot.subtitle = element_text(hjust = 0.5)
+  )
+```
+
+ \textcolor{MidnightBlue}{\subsection{Indicateurs techniques}}
+
+Objectif :Tracez des moyennes mobiles simples (50 et 200 jours) et calculez le RSI sur 14 jours.
+
+1. Calcul des moyennes mobiles simples (SMA 50 et SMA 200)
+
+La moyenne mobile simple (SMA) sur $n$ jours est définie par :
+
+$$
+\text{SMA}_n(t) = \frac{1}{n} \sum_{i=0}^{n-1} P_{t-i}
+$$
+
+où $P_{t-i}$ représente le prix de clôture du jour $t-i$.
+
+L'objectif est de lisser les fluctuations de court terme pour identifier la tendance sous-jacente.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{|X|X|}
+\hline
+\rowcolor{darkblue}
+\color{white}\textbf{Paramètre} & \color{white}\textbf{Valeur / Modalité} \\
+\hline
+\rowcolor{gray!10} Formule & $\text{SMA}_n(t) = \frac{1}{n} \sum_{i=0}^{n-1} P_{t-i}$ \\
+\hline
+\rowcolor{white} Période retenue & SMA 50 jours et SMA 200 jours \\
+\hline
+\rowcolor{gray!10} Objectif & Lisser les fluctuations de court terme pour identifier la tendance sous-jacente \\
+\hline
+\rowcolor{white} $\text{Prix} > \text{SMA}_{50} > \text{SMA}_{200}$ & Tendance haussière (structure saine) \\
+\hline
+\rowcolor{gray!10} $\text{Prix} < \text{SMA}_{50} < \text{SMA}_{200}$ & Tendance baissière \\
+\hline
+\rowcolor{white} $\text{SMA}_{50}$ traverse $\text{SMA}_{200}$ à la hausse & \textit{Golden cross} — signal haussier \\
+\hline
+\rowcolor{gray!10} $\text{SMA}_{50}$ traverse $\text{SMA}_{200}$ à la baisse & \textit{Death cross} — signal baissier \\
+\hline
+\end{tabularx}
+\end{center}
+
+
+```{r,echo=TRUE,comment=""}
+# SMA 50 jours
+sma50 <- SMA(Cl(GSPC), n = 50)
+
+# SMA 200 jours
+sma200 <- SMA(Cl(GSPC), n = 200)
+
+# Ajouter les colonnes à l'objet GSPC
+GSPC$SMA50 <- sma50
+GSPC$SMA200 <- sma200
+
+# Afficher les dernières valeurs
+tail(GSPC[, c("GSPC.Close", "SMA50", "SMA200")])
+```
+
+
+2. Calcul du RSI sur 14 jours
+
+Le Relative Strength Index (RSI) sur $n$ jours est défini par :
+
+$$
+\text{RSI}_n(t) = 100 - \frac{100}{1 + \text{RS}(t)}
+$$
+
+où $\text{RS}(t)$ (Relative Strength) est le rapport entre le gain moyen et la perte moyenne sur $n$ jours :
+
+$$
+\text{RS}(t) = \frac{\text{Gain moyen sur } n \text{ jours}}{\text{Perte moyenne sur } n \text{ jours}}
+$$
+
+Avec :
+- $\text{Gain moyen} = \frac{1}{n} \sum \text{gains journaliers (positifs, 0 sinon)}$
+- $\text{Perte moyenne} = \frac{1}{n} \sum \text{pertes journalières (positives, 0 sinon)}$
+
+L'objectif est de mesurer la vitesse et l'ampleur des variations de prix pour identifier les conditions de surachat ou de survente.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{|X|X|}
+\hline
+\rowcolor{darkblue}
+\color{white}\textbf{Paramètre} & \color{white}\textbf{Valeur / Modalité} \\
+\hline
+\rowcolor{gray!10} Formule & $\text{RSI}_n(t) = 100 - \frac{100}{1 + \text{RS}(t)}$ avec $\text{RS}(t) = \frac{\text{Gain moyen sur } n \text{ jours}}{\text{Perte moyenne sur } n \text{ jours}}$ \\
+\hline
+\rowcolor{white} Période retenue & 14 jours \\
+\hline
+\rowcolor{gray!10} Objectif & Mesurer la vitesse et l'amplitude des variations de prix pour identifier les conditions de surachat ou de survente \\
+\hline
+\rowcolor{white} $\text{RSI} > 70$ & Zone de surachat — signal de vente potentiel \\
+\hline
+\rowcolor{gray!10} $\text{RSI} < 30$ & Zone de survente — signal d'achat potentiel \\
+\hline
+\rowcolor{white} $30 \leq \text{RSI} \leq 70$ & Zone neutre — pas de signal extrême \\
+\hline
+\rowcolor{gray!10} $\text{RSI} = 50$ & Équilibre entre gains et pertes \\
+\hline
+\rowcolor{white} Divergence haussière & Le prix baisse mais le RSI forme des plus bas plus élevés $\rightarrow$ signal d'achat \\
+\hline
+\rowcolor{gray!10} Divergence baissière & Le prix monte mais le RSI forme des plus hauts plus bas $\rightarrow$ signal de vente \\
+\hline
+\end{tabularx}
+\end{center}
+
+
+
+```{r,echo=TRUE,comment=""}
+rsi14 <- RSI(Cl(GSPC), n = 14)
+GSPC$RSI14 <- rsi14
+tail(GSPC[, c("GSPC.Close", "SMA50",
+              "SMA200", "RSI14")])
+```
+
+3. Créer un dataframe propre pour la visualisation
+
+```{r,echo=TRUE,comment=""}
+sp500_df <- data.frame(
+  date = index(GSPC),
+  close = as.numeric(GSPC$GSPC.Close),
+  sma50 = as.numeric(GSPC$SMA50),
+  sma200 = as.numeric(GSPC$SMA200),
+  rsi14 = as.numeric(GSPC$RSI14)
+)
+
+sp500_df <- sp500_df[!is.na(sp500_df$sma50)
+                     & !is.na(sp500_df$sma200)
+                     & !is.na(sp500_df$rsi14), ]
+
+```
+
+4. Visualisation : Prix avec moyennes mobiles
+
+```{r,echo=TRUE,comment=""}
+ggplot(sp500_df, aes(x = date)) +
+  geom_line(aes(y = close, color =
+                  "Prix de clôture"),
+            linewidth = 1) +
+  geom_line(aes(y = sma50, color = "SMA 50 jours")
+            ,linewidth = 0.8) +
+  geom_line(aes(y = sma200, color = "SMA 200 jours")
+            ,linewidth = 0.8) +
+  labs(
+    title = "S&P 500 - Prix et Moyennes Mobiles",
+    subtitle = "SMA 50 jours (bleu clair) 
+    et SMA 200 jours (rouge) 
+    | Mars 2019 - Février 2026",
+    x = "Date",
+    y = "Prix (USD)",
+    color = "Indicateurs"
+  ) +
+  scale_color_manual(values = c(
+    "Prix de clôture" = "black",
+    "SMA 50 jours" = "steelblue",
+    "SMA 200 jours" = "darkred"
+  )) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5,
+                              face = "bold"),
+    legend.position = "bottom"
+  )
+```
+
+5. Visualisation : RSI avec zones de surachat/survente
+
+```{r,echo=TRUE,comment=""}
+# Graphique 2 : RSI avec zones
+ggplot(sp500_df, aes(x = date, y = rsi14)) +
+  geom_line(color = "orange", linewidth = 0.8) +
+  geom_hline(yintercept = 70, linetype = "dashed"
+             ,color = "red", linewidth = 0.8) +
+  geom_hline(yintercept = 30, linetype = "dashed"
+             ,color = "green", linewidth = 0.8) +
+  geom_hline(yintercept = 50, linetype = "dotted"
+             ,color = "gray50", linewidth = 0.5) +
+  annotate("text", x = min(sp500_df$date), y = 72
+           ,label = "Surachat (RSI > 70)", 
+           hjust = 0, size = 3, color = "red") +
+  annotate("text", x = min(sp500_df$date), y = 28,
+           label = "Survente (RSI < 30)", 
+           hjust = 0, size = 3, color = "green") +
+  labs(
+    title = "S&P 500 - Relative Strength Index
+    (RSI 14 jours)",
+    subtitle = "Zones de surachat (>70)
+    et de survente (<30) 
+    | Mars 2019 - Février 2026",
+    x = "Date",
+    y = "RSI"
+  ) +
+  ylim(0, 100) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5,
+                              face = "bold")
+  )
+```
+
+6. Graphique combiné (prix + RSI en deux panneaux)
+
+```{r,echo=TRUE,comment=""}
+chart_Series(GSPC, 
+             name = "S&P 500 - Prix, SMA 50,
+             SMA 200 et RSI 14",
+             TA = "add_SMA(n=50, col='steelblue');
+             add_SMA(n=200, col='darkred');
+                   add_RSI(n=14, maType='SMA')")
+```
+
+
+ \textcolor{MidnightBlue}{\subsection{Signaux de trading}}
+
+Objectif :Proposez des stratégies d’entrée et de sortie basées sur les moyennes
+mobiles et le RSI.
+
+
+Stratégie 1 : Croisement des moyennes mobiles (SMA 50 / SMA 200)
+
+Cette stratégie repose sur les croisements des moyennes mobiles à court et long terme.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{|X|X|X|}
+\hline
+\rowcolor{darkblue}
+\color{white}\textbf{Signal} & \color{white}\textbf{Condition} & \color{white}\textbf{Action} \\
+\hline
+\rowcolor{gray!10} \textit{Golden Cross} (entrée) & SMA 50 traverse SMA 200 à la hausse & \textbf{Achat} (position longue) \\
+\hline
+\rowcolor{white} \textit{Death Cross} (sortie) & SMA 50 traverse SMA 200 à la baisse & \textbf{Vente} (fermeture position) \\
+\hline
+\rowcolor{gray!10} Renforcement haussier & Prix > SMA 50 > SMA 200 & Maintien ou renforcement de la position longue \\
+\hline
+\rowcolor{white} Renforcement baissier & Prix < SMA 50 < SMA 200 & Maintien de la position courte ou sortie \\
+\hline
+\end{tabularx}
+\end{center}
+
+Stratégie 2 : RSI (Relative Strength Index)
+
+Cette stratégie exploite les zones de surachat et de survente pour anticiper les retournements de tendance.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{|X|X|X|}
+\hline
+\rowcolor{darkblue}
+\color{white}\textbf{Signal} & \color{white}\textbf{Condition} & \color{white}\textbf{Action} \\
+\hline
+\rowcolor{gray!10} Entrée (achat) & RSI < 30 (zone de survente) & \textbf{Achat} — anticipation d'un rebond \\
+\hline
+\rowcolor{white} Sortie (vente) & RSI > 70 (zone de surachat) & \textbf{Vente} — prise de bénéfices \\
+\hline
+\rowcolor{gray!10} Divergence haussière & Prix baisse $\;$ / $\;$ RSI forme des plus bas plus élevés & \textbf{Achat} — signal de retournement haussier \\
+\hline
+\rowcolor{white} Divergence baissière & Prix monte $\;$ / $\;$ RSI forme des plus hauts plus bas & \textbf{Vente} — signal de retournement baissier \\
+\hline
+\end{tabularx}
+\end{center}
+
+Stratégie 3 : Combinaison SMA + RSI (stratégie hybride)
+
+La combinaison des deux indicateurs permet de filtrer les faux signaux et d'augmenter la fiabilité des entrées et sorties.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{|X|X|X|}
+\hline
+\rowcolor{darkblue}
+\color{white}\textbf{Signal} & \color{white}\textbf{Conditions cumulatives} & \color{white}\textbf{Action} \\
+\hline
+\rowcolor{gray!10} \textbf{Entree longue} & \begin{tabular}{@{}l@{}} 1. SMA 50 $>$ SMA 200 \\ 2. RSI $<$ 30 (survente) \\ 3. Prix $>$ SMA 50 \end{tabular} & \textbf{Achat confirmé} — tendance haussière avec pullback \\
+\hline
+\rowcolor{white} \textbf{Sortie longue} & \begin{tabular}{@{}l@{}} 1. RSI $>$ 70 (surachat) \\ 2. Prix $<$ SMA 50 \end{tabular} & \textbf{Vente} — prise de bénéfices \\
+\hline
+\rowcolor{gray!10} \textbf{Entree courte} & \begin{tabular}{@{}l@{}} 1. SMA 50 $<$ SMA 200 \\ 2. RSI $>$ 70 (surachat) \\ 3. Prix $<$ SMA 50 \end{tabular} & \textbf{Vente à découvert} — tendance baissière avec rebond technique \\
+\hline
+\rowcolor{white} \textbf{Sortie courte} & \begin{tabular}{@{}l@{}} 1. RSI $<$ 30 (survente) \\ 2. Prix $>$ SMA 50 \end{tabular} & \textbf{Rachat} — couverture de position courte \\
+\hline
+\end{tabularx}
+\end{center}
+
+
+Stratégie 4 : Filtrage de tendance (SMA 200 comme filtre)
+
+La SMA 200 sert de filtre de tendance principal pour ne trader que dans la direction du mouvement de long terme.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{|X|X|X|}
+\hline
+\rowcolor{darkblue}
+\color{white}\textbf{Tendance} & \color{white}\textbf{Condition d'entrée} & \color{white}\textbf{Condition de sortie} \\
+\hline
+\rowcolor{gray!10} \textbf{Haussière} & \begin{tabular}{@{}l@{}} Prix $>$ SMA 200 \\ + RSI $<$ 30 \end{tabular} & \begin{tabular}{@{}l@{}} RSI $>$ 70 \\ ou \\ Prix $<$ SMA 50 \end{tabular} \\
+\hline
+\rowcolor{white} \textbf{Baissière} & \begin{tabular}{@{}l@{}} Prix $<$ SMA 200 \\ + RSI $>$ 70 \end{tabular} & \begin{tabular}{@{}l@{}} RSI $<$ 30 \\ ou \\ Prix $>$ SMA 50 \end{tabular} \\
+\hline
+\end{tabularx}
+\end{center}
+
+Récapitulatif des signaux
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{|X|X|X|}
+\hline
+\rowcolor{darkblue}
+\color{white}\textbf{Type de signal} & \color{white}\textbf{Indicateur(s)} & \color{white}\textbf{Décision} \\
+\hline
+\rowcolor{gray!10} \textbf{Achat fort} & Golden Cross + RSI $<$ 30 & Entrée longue \\
+\hline
+\rowcolor{white} \textbf{Achat modéré} & RSI $<$ 30 avec tendance haussière (Prix $>$ SMA 200) & Entrée longue \\
+\hline
+\rowcolor{gray!10} \textbf{Vente forte} & Death Cross + RSI $>$ 70 & Sortie / vente à découvert \\
+\hline
+\rowcolor{white} \textbf{Vente modérée} & RSI $>$ 70 avec divergence baissière & Prise de bénéfices \\
+\hline
+\rowcolor{gray!10} \textbf{Attente / Neutre} & $30 <$ RSI $< 70$ & Pas de position \\
+\hline
+\end{tabularx}
+\end{center}
+
+
+Ces stratégies peuvent être appliquées sur le S&P 500 et feront l'objet d'un backtesting dans la section suivante pour évaluer leur performance par rapport à une stratégie passive *buy and hold*.
+
+\textcolor{MidnightBlue}{\subsection{Backtesting}}
+
+**Objectif :** Tester les stratégies sur les 12 derniers mois et les comparer à une stratégie *buy and hold*.
+
+
+Le **backtesting** est une méthode d'évaluation rétrospective d'une stratégie de trading consistant à simuler son application sur des données historiques pour mesurer sa performance et sa robustesse avant une éventuelle application en temps réel.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{|X|X|}
+\hline
+\rowcolor{darkblue}
+\color{white}\textbf{Concept} & \color{white}\textbf{Définition} \\
+\hline
+\rowcolor{gray!10} Backtesting & Simulation d'une stratégie sur des données passées pour évaluer sa performance \\
+\hline
+\rowcolor{white} Buy \& Hold & Stratégie passive consistant à acheter et conserver l'actif, servant de benchmark \\
+\hline
+\end{tabularx}
+\end{center}
+
+1. Métriques de performance
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{|X|X|X|}
+\hline
+\rowcolor{darkblue}
+\color{white}\textbf{Métrique} & \color{white}\textbf{Formule} & \color{white}\textbf{Interprétation} \\
+\hline
+\rowcolor{gray!10} Rendement total & $R = \frac{V_f - V_i}{V_i} \times 100$ & Performance brute sur la période \\
+\hline
+\rowcolor{white} Drawdown maximal & $\max_{t} \left( \frac{P_t - \max_{s \leq t} P_s}{\max_{s \leq t} P_s} \right)$ & Perte maximale depuis un plus haut \\
+\hline
+\rowcolor{gray!10} Ratio de Sharpe & $\frac{E[R_p - R_f]}{\sigma_p}$ & Rendement ajusté du risque \\
+\hline
+\rowcolor{white} Taux de réussite & $\frac{\text{Nb trades gagnants}}{\text{Nb trades totaux}}$ & Fréquence des opérations bénéficiaires \\
+\hline
+\end{tabularx}
+\end{center}
+
+Nous allons utiliser le rendement total pour comparer les différentes stratégies entre elles et par rapport à la stratégie *buy and hold*.
+
+2. Protocole de test
+
+Le backtesting est réalisé sur la période des **12 derniers mois** (Mars 2025 - Février 2026) pour évaluer la performance des stratégies définies précédemment.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{|X|X|}
+\hline
+\rowcolor{darkblue}
+\color{white}\textbf{Paramètre} & \color{white}\textbf{Valeur} \\
+\hline
+\rowcolor{gray!10} Période de test & 1er Mars 2025 — 28 Février 2026 \\
+\hline
+\rowcolor{white} Actif testé & S\&P 500 (GSPC) \\
+\hline
+\rowcolor{gray!10} Stratégie de référence & \textit{Buy and Hold} — achat initial et conservation sur toute la période \\
+\hline
+\rowcolor{white} Capital initial & 100 000 USD \\
+\hline
+\rowcolor{gray!10} Frais de transaction & 0,1\% par transaction (hypothèse) \\
+\hline
+\rowcolor{white} Coût du slippage & 0,05\% par transaction \\
+\hline
+\end{tabularx}
+\end{center}
+
+```{r}
+derniere_date <- end(GSPC)
+date_debut <- derniere_date - 365
+GSPC_12m <- GSPC[paste0(date_debut, "/", derniere_date)]
+
+# Calcul des indicateurs pour la période de test
+GSPC_12m$SMA50 <- SMA(Cl(GSPC_12m), n = 50)
+GSPC_12m$SMA200 <- SMA(Cl(GSPC_12m), n = 200)
+GSPC_12m$RSI14 <- RSI(Cl(GSPC_12m), n = 14)
+
+# Création du dataframe pour le backtesting
+backtest_df <- data.frame(
+  date = index(GSPC_12m),
+  close = as.numeric(Cl(GSPC_12m)),
+  sma50 = as.numeric(GSPC_12m$SMA50),
+  sma200 = as.numeric(GSPC_12m$SMA200),
+  rsi14 = as.numeric(GSPC_12m$RSI14)
+)
+
+backtest_df <- backtest_df[complete.cases(backtest_df), ]
+```
+
+
+
+ 3. Stratégies testées
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{|X|X|X|}
+\hline
+\rowcolor{darkblue}
+\color{white}\textbf{Stratégie} & \color{white}\textbf{Condition d'achat} & \color{white}\textbf{Condition de vente} \\
+\hline
+\rowcolor{gray!10} \textbf{S1 : Golden/Death Cross} & SMA50 $>$ SMA200 & SMA50 $<$ SMA200 \\
+\hline
+\rowcolor{white} \textbf{S2 : RSI pur} & RSI $<$ 30 & RSI $>$ 70 \\
+\hline
+\rowcolor{gray!10} \textbf{S3 : Hybride} & SMA50 $>$ SMA200 et RSI $<$ 30 & RSI $>$ 70 ou SMA50 $<$ SMA200 \\
+\hline
+\rowcolor{white} \textbf{S4 : Filtre SMA200} & Prix $>$ SMA200 et RSI $<$ 30 & Prix $<$ SMA50 ou RSI $>$ 70 \\
+\hline
+\rowcolor{gray!10} \textbf{B\&H} & Achat initial & Conservation jusqu'à la fin \\
+\hline
+\end{tabularx}
+\end{center}
+
+
+
+ 4. Fonction de backtesting
+
+```{r,echo=TRUE,comment=""}
+# Fonction de simulation de trading
+backtest_strategy <- function(data, signal_achat,
+  signal_vente,capital_initial = 100000) {
+  n <- nrow(data)
+  position <- 0
+  capital <- capital_initial
+  actif <- capital_initial
+  transactions <- data.frame()
+  
+  for (i in 1:n) {
+    prix <- data$close[i]
+    date_courante <- data$date[i]
+    
+    # Signal d'achat
+    if (position == 0 && signal_achat[i]) {
+      qte <- floor(capital / prix)
+      frais <- qte * prix * 0.0015  
+      # 0.15% frais + slippage
+      capital <- capital - qte * prix - frais
+      position <- qte
+      transactions <- rbind(transactions, 
+      data.frame(date = date_courante,
+      type = "ACHAT", 
+      prix = prix, qte = qte))
+    }
+    
+    # Signal de vente
+    else if (position > 0 && signal_vente[i]) {
+      frais <- position * prix * 0.0015
+      capital <- capital + position * prix - frais
+      position <- 0
+      transactions <- rbind(transactions, 
+      data.frame(date = date_courante,
+      type = "VENTE", prix = prix,
+      qte = position))
+    }
+    
+    # Valeur du portefeuille
+    actif[i] <- capital + position * prix
+  }
+  
+  perf <- (tail(actif, 1) - capital_initial) 
+  perf <- perf/ capital_initial * 100
+  
+  n_transactions <- nrow(transactions)
+  
+  return(list(actif = actif, perf = perf,
+              n_transactions = n_transactions, 
+              transactions = transactions,
+              capital_final = tail(actif, 1)))
+}
+```
+
+
+
+ 5. Application des stratégies
+
+```{r,echo=TRUE,comment=""}
+backtest_df$signal_achat_s1 <- (backtest_df$sma50
+           ) > backtest_df$sma200
+backtest_df$signal_vente_s1 <- (backtest_df$sma50
+           ) < backtest_df$sma200
+
+backtest_df$signal_achat_s2 <- (backtest_df$rsi14
+           ) < 30
+backtest_df$signal_vente_s2 <- (backtest_df$rsi14
+           ) > 70
+
+backtest_df$signal_achat_s3 <- ((backtest_df$sma50
+           ) > backtest_df$sma200) &
+           (backtest_df$rsi14 < 30)
+backtest_df$signal_vente_s3 <- ((backtest_df$rsi14
+           ) > 70)| ((backtest_df$sma50
+           ) < backtest_df$sma200)
+
+backtest_df$signal_achat_s4 <- ((backtest_df$close
+           ) > backtest_df$sma200
+           )& (backtest_df$rsi14 < 30)
+backtest_df$signal_vente_s4 <- ((backtest_df$close
+           ) < backtest_df$sma50
+           ) | (backtest_df$rsi14 > 70)
+
+# Exécution des backtests
+results <- list()
+results$S1 <- backtest_strategy(backtest_df,
+           backtest_df$signal_achat_s1,
+           backtest_df$signal_vente_s1)
+results$S2 <- backtest_strategy(backtest_df,
+           backtest_df$signal_achat_s2,
+           backtest_df$signal_vente_s2)
+results$S3 <- backtest_strategy(backtest_df,
+           backtest_df$signal_achat_s3,
+           backtest_df$signal_vente_s3)
+results$S4 <- backtest_strategy(backtest_df,
+           backtest_df$signal_achat_s4,
+           backtest_df$signal_vente_s4)
+
+# Buy and Hold
+buy_hold_perf <- ((tail(backtest_df$close, 1)
+                   ) - backtest_df$close[1]) /
+  backtest_df$close[1] * 100
+
+buy_hold_capital <- 100000 * (1 +( buy_hold_perf
+                                   ) / 100)
+```
+
+
+
+ 6. Résultats comparatifs
+ 
+```{r,echo=TRUE,comment=""}
+# Création du tableau des résultats
+resultats_df <- data.frame(
+  Strategie = c("S1 : Golden/Death Cross", 
+                "S2 : RSI pur", 
+                "S3 : Hybride (SMA + RSI)", 
+                "S4 : Filtre SMA200", 
+                "Buy \\& Hold"),
+  Performance = c(round(results$S1$perf, 2), 
+                  round(results$S2$perf, 2), 
+                  round(results$S3$perf, 2), 
+                  round(results$S4$perf, 2), 
+                  round(buy_hold_perf, 2)),
+  Capital_final = c(round(results$S1$capital_final,
+                          0), 
+                    round(results$S2$capital_final,
+                          0), 
+                    round(results$S3$capital_final,
+                        
+                          0), 
+                    round(results$S4$capital_final,
+                          0), 
+                    round(buy_hold_capital, 0)),
+  Nb_transactions = c(results$S1$n_transactions, 
+                      results$S2$n_transactions, 
+                      results$S3$n_transactions, 
+                      results$S4$n_transactions, 
+                      0)
+)
+
+# Affichage du tableau avec police réduite
+knitr::kable(resultats_df, 
+  caption = "Comparaison des performances des 
+  stratégies sur 12 mois",
+  booktabs = TRUE,
+  format = "latex",
+  col.names = c("Stratégie",
+              "Performance (\\%)","Capital final
+              (USD)", "Nb transactions")) %>%
+  kableExtra::kable_styling(
+    latex_options = c("striped", "hold_position",
+                      "scale_down"))
+```
+
+
+ 7. Visualisation des performances
+
+```{r}
+# Création du dataframe des performances cumulées
+perf_df <- data.frame(
+  date = backtest_df$date,
+  Buy_Hold = (backtest_df$close / backtest_df$close[1] - 1) * 100,
+  S1 = (results$S1$actif / 100000 - 1) * 100,
+  S2 = (results$S2$actif / 100000 - 1) * 100,
+  S3 = (results$S3$actif / 100000 - 1) * 100,
+  S4 = (results$S4$actif / 100000 - 1) * 100
+)
+
+# Graphique comparatif
+ggplot(perf_df, aes(x = date)) +
+  geom_line(aes(y = Buy_Hold, color = "Buy & Hold"), linewidth = 1) +
+  geom_line(aes(y = S1, color = "S1: Golden/Death Cross"), linewidth = 0.8) +
+  geom_line(aes(y = S2, color = "S2: RSI pur"), linewidth = 0.8) +
+  geom_line(aes(y = S3, color = "S3: Hybride"), linewidth = 0.8) +
+  geom_line(aes(y = S4, color = "S4: Filtre SMA200"), linewidth = 0.8) +
+  labs(
+    title = "Comparaison des stratégies de trading",
+    subtitle = "Performance cumulée (%) | S&P 500 - Mars 2025 à Février 2026",
+    x = "Date", y = "Performance cumulée (\\%)", color = "Stratégie"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold"),
+    legend.position = "bottom"
+  ) +
+  scale_color_manual(values = c(
+    "Buy & Hold" = "black",
+    "S1: Golden/Death Cross" = "steelblue",
+    "S2: RSI pur" = "darkgreen",
+    "S3: Hybride" = "purple",
+    "S4: Filtre SMA200" = "orange"
+  ))
+```
+
+ 8. Analyse des résultats
+
+ 8.1 Contexte de la période testée
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{|X|X|}
+\hline
+\rowcolor{darkblue}
+\color{white}\textbf{Indicateur} & \color{white}\textbf{Valeur} \\
+\hline
+\rowcolor{gray!10} Période analysée & 11 décembre 2025 — 27 février 2026 \\
+\hline
+\rowcolor{white} Nombre de séances & 53 jours \\
+\hline
+\rowcolor{gray!10} Prix de départ & 6 901,00 USD \\
+\hline
+\rowcolor{white} Prix de fin & 6 878,88 USD \\
+\hline
+\rowcolor{gray!10} Variation du S\&P 500 & -0,32\% \\
+\hline
+\end{tabularx}
+\end{center}
+
+**Observation :** La période de test est caractérisée par un **marché latéral légèrement baissier** (-0,32\%) avec une durée relativement courte (53 séances). Cette configuration explique la difficulté des stratégies à générer des signaux et des performances significatives.
+
+ 8.2 Performances des stratégies
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{|X|X|X|X|}
+\hline
+\rowcolor{darkblue}
+\color{white}\textbf{Stratégie} & \color{white}\textbf{Performance (\%)} & \color{white}\textbf{Capital final (USD)} & \color{white}\textbf{Nb transactions} \\
+\hline
+\rowcolor{gray!10} S1 : Golden/Death Cross & -0,45\% & 99 545 & 1 \\
+\hline
+\rowcolor{white} S2 : RSI pur & 0,00\% & 100 000 & 0 \\
+\hline
+\rowcolor{gray!10} S3 : Hybride (SMA + RSI) & 0,00\% & 100 000 & 0 \\
+\hline
+\rowcolor{white} S4 : Filtre SMA200 & 0,00\% & 100 000 & 0 \\
+\hline
+\rowcolor{gray!10} \textbf{Buy \& Hold} & \textbf{-0,32\%} & \textbf{99 679} & \textbf{0} \\
+\hline
+\end{tabularx}
+\end{center}
+
+8.3 Classement et analyse comparative
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{|X|X|}
+\hline
+\rowcolor{darkblue}
+\color{white}\textbf{Métrique} & \color{white}\textbf{Observation} \\
+\hline
+\rowcolor{gray!10} Stratégie la plus performante & S2 (RSI pur) avec 0,00\% — préserve le capital intact \\
+\hline
+\rowcolor{white} Stratégie avec le moins de transactions & S2, S3, S4 (0 transaction) — aucune exposition au risque \\
+\hline
+\rowcolor{gray!10} Stratégie avec le plus de transactions & S1 (1 transaction) — Golden Cross détectée mais non rentable \\
+\hline
+\rowcolor{white} Comparaison Buy \& Hold & S2 surperforme le Buy \& Hold de 0,32 point \\
+\hline
+\rowcolor{gray!10} Interprétation & Aucune stratégie n'a généré de signal d'achat pertinent sur la période \\
+\hline
+\end{tabularx}
+\end{center}
+
+ 8.4 Interprétation des résultats
+
+\begin{minipage}{\linewidth}
+\textbf{Analyse des signaux :}
+
+\begin{itemize}
+    \item \textbf{S2 (RSI pur) :} Le RSI n'a jamais franchi le seuil de survente (30) sur la période, expliquant l'absence de transaction. Cette stratégie a préservé le capital en restant en cash.
+    
+    \item \textbf{S3 (Hybride) :} La double condition (SMA50 $>$ SMA200 ET RSI $<$ 30) n'a pas été remplie, aucun signal d'achat déclenché.
+    
+    \item \textbf{S4 (Filtre SMA200) :} Le prix n'est jamais passé en dessous de la SMA200 avec un RSI $<$ 30 simultanément.
+    
+    \item \textbf{S1 (Golden/Death Cross) :} Un signal \textit{Golden Cross} a été détecté mais s'est avéré être un faux signal, entraînant une perte de -0,45\% après frais.
+    
+    \item \textbf{Buy \& Hold :} Performance négative de -0,32\% en raison de la tendance baissière de fin de période.
+\end{itemize}
+\end{minipage}
+
+
+
+
+\begin{center}
+\fcolorbox{darkblue}{gray!10}{
+\begin{minipage}{0.9\linewidth}
+\textbf{Conclusion :} Sur la période testée (décembre 2025 - février 2026), la stratégie \textbf{RSI pur (S2)} a préservé le capital en restant hors du marché, surperformant légèrement le \textit{Buy and Hold}. Cependant, l'absence de signaux d'achat et la courte période d'analyse ne permettent pas de conclure définitivement sur la supériorité d'une stratégie particulière. Un backtesting sur une période plus longue intégrant différents régimes de marché est nécessaire pour valider la robustesse des stratégies proposées.
+\end{minipage}
+}
+\end{center}
+
+
+
+Cette analyse met en évidence l'importance de la **période de test** et de la **configuration de marché** dans l'évaluation des stratégies de trading. Les résultats montrent qu'en période latérale, les stratégies prudentes (cash) peuvent surperformer les stratégies actives.
+
+
+
+
+
+```{r}
+# Nettoyage des fichiers temporaires
+unlink(c("*.aux", "*.log", "*.out", "*.toc", "*.bbl", "*.blg", "*.synctex.gz"),
+       recursive = TRUE)
+```
