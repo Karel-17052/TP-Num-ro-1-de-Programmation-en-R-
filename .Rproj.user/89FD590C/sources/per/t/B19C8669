@@ -3,7 +3,7 @@
     "path": "C:/Users/hp/Desktop/ISEP2/Second Semestre/R/ME R 2026/TP1/Traitement TP1.Rmd",
     "project_path": "Traitement TP1.Rmd",
     "type": "r_markdown",
-    "hash": "4212846489",
+    "hash": "378724513",
     "contents": "",
     "dirty": false,
     "created": 1775641600213.0,
@@ -13,17 +13,17 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "237,117",
-        "scrollLine": "234",
+        "cursorPosition": "15,23",
+        "scrollLine": "6",
         "docOutlineVisible": "0",
-        "last_setup_crc32": "cb348be67ddc7600"
+        "last_setup_crc32": "d3fced6714c4fb9c"
     },
     "folds": "",
-    "lastKnownWriteTime": 1775737460,
+    "lastKnownWriteTime": 1776296019,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1775737460934,
+    "last_content_update": 1776296019824,
     "read_only": false,
     "read_only_alternatives": []
 }

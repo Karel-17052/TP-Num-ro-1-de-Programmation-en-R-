@@ -1,11 +1,15 @@
 ---
 documentclass: article
+title: "Traitement du TP1"
+author: "Rédigé par :  \n  Karel SODJINOUTI  \n"
+date: "`r Sys.Date()`"
 fontsize: 11pt
 output:
   pdf_document:
-    toc: no
+    toc: true
+    number_sections: true
     fig_caption: yes
-    number_sections: no
+    
     keep_tex: false
     latex_engine: xelatex
 header-includes: |
@@ -77,7 +81,6 @@ header-includes: |
   \usepackage{titlesec}
   \renewcommand\thesection{\arabic{section}}
   \renewcommand{\refname}{\textcolor{RoyalBlue}{Références bibliographiques}}
-  \usepackage[pages=all]{background}
   \usepackage{pifont}
 ---
 
@@ -85,7 +88,7 @@ header-includes: |
 knitr::opts_chunk$set(
   echo      = TRUE,
   eval      = TRUE,
-  comment   = "##",
+  comment   = "",
   prompt    = FALSE,
   warning   = FALSE,
   message   = FALSE,
@@ -201,7 +204,7 @@ Toutes les colonnes sont de type "list".
 
 ##  Expliquer précisément pourquoi R accepte cette structure malgré l’hétérogénéité initiale
 
-Une liste est capable de contenir plusieurs types.
+Un dataframe est stocké sous forme de liste. Or une liste est capable de contenir plusieurs types de données tout en préservant ce type. D'où le fait que R accepte cette structure. 
 
 ## Comparer le comportement de l’objet D avec celui obtenu après l’instruction suivante :
 
@@ -215,14 +218,10 @@ D
 
 ```{r}
 m <- as.matrix(D)
-# 
-# typeof(m[,1])
-# class(m)
+
 ```
-On remarque qu'un objet de classe data.frame préserve le type des éléments de ses colonnes en les mettant dans une liste. Il ne fait de coercition sur tout les éléments qui le compose. Par contre, une matrice effectue une coercition suivant le type sur tout les éléments qui la compose.
-```{r}
-mean(m[,1])
-```
+On remarque qu'un objet de classe data.frame préserve le type des éléments de ses colonnes en les mettant dans une liste ce qui n'est pas le cas avec la matrice. 
+
 ```{r}
 mean(D[,1])
 ```
@@ -232,6 +231,7 @@ mean(D[,1])
 ```{r}
 typeof(m)
 ```
+La matrice obtenue est de type "character". En effet une matrice effectue une coercition suivant le type sur tout les éléments qui la compose.
 
 ## Montrer en quoi cette transformation peut entraîner une perte d’information statistique dans un contexte d’analyse de données.
  
@@ -240,4 +240,333 @@ Quand vous calculer une statistique sur des colonnes quantitaives (comme colMean
 
 ## Proposer une stratégie permettant de préserver les types tout en rendant possibles certaines opérations de nature matricielle.
 
+On peut d'abord convertir la matrice au format dataframe. Cela permet de préserver la structure des données. A la suite de cela, on extrait les données numréiques qui dans un dataframe nommé df_num par exemple. On peut maintenant convertir df_num au format matricielle et effectuer les opérations matricielles voulues. 
+
+# Exercice 3 — Facteurs, encodage et biais d’interprétation
+On considère le vecteur suivant :
+
+```{r}
+niveau <- c("faible", "moyen", "élevé", "moyen", "faible")
+```
+
+## Transformer niveau en facteur ordonné avec une hiérarchie pertinente.
+```{r}
+niveau <- factor(niveau,levels = c("faible","moyen","élevé"))
+```
+
+## Déterminer les valeurs numériques internes associées aux modalités.
+
+```{r}
+as.integer(niveau)
+```
+
+## Expliquer pourquoi l’instruction suivante peut être dangereuse dans une analyse :
+```{r}
+as.numeric(niveau)
+```
+Elle peut être dangereuse dans le cas où nous avons des nombres dans le facteur et que nous voulions voir le visage de ces nombres. Quand on met cette commande, elle nous donnes les codes utilisé par R pour encoder ces nombres au lieu de la valeur réelle de ces nombres même. 
+Par exemple : 
+
+```{r}
+x <- factor(c(3678,2,4))
+as.numeric(x)
+```
+
+## Proposer une méthode correcte pour obtenir une représentation numérique cohérente.
+
+On converti d'abord le factor en une chaîne de caractère. Et après cela, on le converti en numeric. Par exemple
+```{r}
+x <- factor(c(3678,2,4))
+as.numeric(as.character(x))
+```
+Différent de : 
+```{r}
+x <- factor(c(3678,2,4))
+as.numeric(x)
+```
+
+## Disucussion de la validité statistique
+
+On définit le vecteur suivant :
+```{r}
+revenu <- c(100, 200, 300, 250, 150)
+```
+
+Discuter la validité statistique de l’expression :
+
+```{r}
+mean(revenu[niveau == "élevé"])
+```
+ Cette opération est valide si les deux vecteurs : revenu et niveau ont la même longueur. Par ailleurs, si "élévé" n'était pas dans les levels, même s'il était dans les éléments qui ont construit le factor (les labels), le calcul précédent retournerait un NA comme ci dessous : 
+ 
+```{r}
+niv <- c("faible", "moyen", "élevé", "moyen", "faible")
+niv <- factor(niv,levels = c("faible","moyen"))
+mean(revenu[niv == "élevé"])
+```
+ 
+## Identifier un biais potentiel si les niveaux du facteur sont mal ordonnés.
+
+Biais dans le rangement : on peut avoir des opérateurs de comparaison faussés
+```{r}
+# Facteur ordonné mal configuré
+niveau_etude <- ordered(c("Lycée", "Master", "Licence"),
+                        levels = c("Lycée", "Master", "Licence"))
+#                                            ↑ Master avant Licence → ERREUR
+
+niveau_etude[1] < niveau_etude[2]   # TRUE  ← Lycée < Master ✓ (par hasard)
+niveau_etude[2] < niveau_etude[3]   # TRUE  ← Master < Licence ✗ FAUX !
+
+# Correction
+niveau_etude <- ordered(c("Lycée", "Master", "Licence"),
+                        levels = c("Lycée", "Licence", "Master"))
+niveau_etude[2] < niveau_etude[3]   # FALSE ← Licence < Master ✓
+```
+
+# Exercice 4 Construction structurée d’un data frame
+
+On dispose des informations suivantes sur une cohorte d’étudiants :
+\begin{itemize}
+\item[$\bullet$] identifiant unique
+\item[$\bullet$] sexe
+\item[$\bullet$] filière (ISEP, ISE, AS)
+\item[$\bullet$] moyennes semestrielles S1 et S2
+\item[$\bullet$] statut de boursier
+\item[$\bullet$] région d’origine, avec certaines valeurs manquantes
+\end{itemize}
+
+Construire un data.frame cohérent
+
+```{r}
+base <- data.frame(
+  identifiant=c("S01","S02","S03","S04","S05"),
+  sexe=rep_len(c("M","F"),5),
+  filière=rep_len(c("ISEP","ISE","AS"),5),
+  moyenne_S1=c(14,11,12,NA,NA),
+  moyenne_S2=c(16,20,NA,15,13),
+  statut_boursier=rep_len(c(TRUE,FALSE),5),
+  region_d_origine=c("Kolda",NA,"Kaffrine",NA,"Tamba")
+)
+```
+
+##  Créer une variable moyenne_annuelle en tenant compte des cas incomplets.
+
+```{r}
+base$moyenne_annuelle <- with(base, (base$moyenne_S1+base$moyenne_S2)/2)
+base
+```
+
+## Variable Issue :
+Créer une variable qualitative prenant la modalité
+\begin{itemize}
+\item[$\bullet$] "Admis" si la moyenne annuelle est supérieure ou égale à 12 ;
+\item[$\bullet$] "Ajourné" sinon.
+\end{itemize}
+
+```{r}
+base$issue <- ifelse(base$moyenne_annuelle >= 12,"Admis","Ajourné")
+```
+
+## Pertinence de transformer la variable filiere en facteur ordonné
+
+Oui il est pertinent de le faire. Cela permet de d'éviter le biais dans le rangement des modalités et de ne pas fausser les opérateurs de comparaison, comme vu précédemment.
+##  Vérifier la structure complète de l’objet et commenter les types, la cohérence et les éventuelles anomalies
+
+```{r}
+names(base)
+for (i in seq_along(names(base))) print(typeof(base[,i]))
+```
+Le type est cohérent avec les variables que nous avions créées. il n'y a pas d'anomalie.
+
+## Implémenter un contrôle automatique permettant de détecter : les incohérences de type; les valeurs aberrantes; les valeurs manquantes critiques.
+
+```{r}
+controler_dataframe <- function(df,
+                                 seuil_outlier = 3,
+                                 seuil_manquant = 0.1) {
+  rapport <- list()
+
+  # ────────────────────────────────────────────
+  # 1. INCOHÉRENCES DE TYPE
+  # ────────────────────────────────────────────
+  rapport$types <- lapply(names(df), function(col) {
+    x <- df[[col]]
+
+    incoherences <- c()
+
+    # Colonne numérique contenant des chaînes non convertibles
+    if (is.character(x)) {
+      tentative <- suppressWarnings(as.numeric(x))
+      n_coercibles <- sum(!is.na(tentative))
+      if (n_coercibles > length(x) * 0.8) {
+        incoherences <- c(incoherences,
+          paste0("→ '", col, "' est character mais ",
+                 n_coercibles, " valeurs sont numériques"))
+      }
+    }
+
+    # Facteur avec niveaux inattendus (non déclarés)
+    if (is.factor(x)) {
+      niveaux_obs <- levels(droplevels(x))
+      niveaux_dec <- levels(x)
+      fantomes <- setdiff(niveaux_dec, niveaux_obs)
+      if (length(fantomes) > 0) {
+        incoherences <- c(incoherences,
+          paste0("→ '", col, "' a des niveaux fantômes : ",
+                 paste(fantomes, collapse = ", ")))
+      }
+    }
+
+    # Colonne logique stockée en integer (0/1)
+    if (is.integer(x) && all(x %in% c(0L, 1L, NA))) {
+      incoherences <- c(incoherences,
+        paste0("→ '", col,
+               "' pourrait être logical (contient seulement 0/1)"))
+    }
+
+    if (length(incoherences) == 0) NULL else incoherences
+  })
+  names(rapport$types) <- names(df)
+  rapport$types <- Filter(Negate(is.null), rapport$types)
+
+  # ────────────────────────────────────────────
+  # 2. VALEURS ABERRANTES (méthode Z-score)
+  # ────────────────────────────────────────────
+  rapport$outliers <- lapply(names(df), function(col) {
+    x <- df[[col]]
+    if (!is.numeric(x)) return(NULL)
+
+    x_clean <- x[!is.na(x)]
+    if (length(x_clean) < 3) return(NULL)
+
+    z_scores <- abs((x_clean - mean(x_clean)) / sd(x_clean))
+    idx_outliers <- which(z_scores > seuil_outlier)
+
+    if (length(idx_outliers) == 0) return(NULL)
+
+    data.frame(
+      colonne   = col,
+      indice    = idx_outliers,
+      valeur    = x_clean[idx_outliers],
+      z_score   = round(z_scores[idx_outliers], 2)
+    )
+  })
+  names(rapport$outliers) <- names(df)
+  rapport$outliers <- Filter(Negate(is.null), rapport$outliers)
+
+  # ────────────────────────────────────────────
+  # 3. VALEURS MANQUANTES CRITIQUES
+  # ────────────────────────────────────────────
+  rapport$manquants <- lapply(names(df), function(col) {
+    x  <- df[[col]]
+    n  <- length(x)
+    na <- sum(is.na(x))
+    taux <- na / n
+
+    if (na == 0) return(NULL)
+
+    gravite <- dplyr::case_when(
+      taux >= 0.5  ~ "CRITIQUE  (≥ 50%)",
+      taux >= 0.2  ~ "ÉLEVÉ     (≥ 20%)",
+      taux >= seuil_manquant ~ "MODÉRÉ    (≥ 10%)",
+      TRUE         ~ "FAIBLE    (< 10%)"
+    )
+
+    data.frame(
+      colonne  = col,
+      n_NA     = na,
+      taux_NA  = paste0(round(taux * 100, 1), "%"),
+      gravite  = gravite
+    )
+  })
+  names(rapport$manquants) <- names(df)
+  rapport$manquants <- Filter(Negate(is.null), rapport$manquants)
+
+  # ────────────────────────────────────────────
+  # AFFICHAGE DU RAPPORT
+  # ────────────────────────────────────────────
+  cat("══════════════════════════════════════════\n")
+  cat("        RAPPORT DE CONTRÔLE QUALITÉ\n")
+  cat("══════════════════════════════════════════\n\n")
+
+  cat("── 1. INCOHÉRENCES DE TYPE ──────────────\n")
+  if (length(rapport$types) == 0) {
+    cat("  ✓ Aucune incohérence détectée\n")
+  } else {
+    lapply(rapport$types, function(x) cat(" ", x, "\n"))
+  }
+
+  cat("\n── 2. VALEURS ABERRANTES (|Z| >",
+      seuil_outlier, ") ──\n")
+  if (length(rapport$outliers) == 0) {
+    cat("  ✓ Aucune valeur aberrante détectée\n")
+  } else {
+    print(do.call(rbind, rapport$outliers))
+  }
+
+  cat("\n── 3. VALEURS MANQUANTES CRITIQUES ──────\n")
+  if (length(rapport$manquants) == 0) {
+    cat("  ✓ Aucune valeur manquante\n")
+  } else {
+    print(do.call(rbind, rapport$manquants))
+  }
+
+  invisible(rapport)
+}
+```
+
+```{r}
+df_test <- data.frame(
+  age     = c(25, 30, NA, 999, 28),          # outlier + NA
+  salaire = c("3000", "4500", "abc", NA, "3800"), # incohérence type
+  niveau  = factor(c("Junior", "Senior", NA,
+                     "Junior", "Expert"),
+                   levels = c("Junior", "Senior",
+                              "Expert", "Manager")), # niveau fantôme
+  actif   = c(1L, 0L, 1L, 1L, 0L)           # logical déguisé
+)
+
+rapport <- controler_dataframe(df_test, seuil_outlier = 2.5)
+```
+
+
+
+##  Discuter les implications de ces choix de typage pour une régression linéaire, une analyse factorielle.
+
+*implication pour la régression linéaire* : 
+- numeric bien typé, les coefficients sont interprétables directement
+- character non converti, R refuse ou coerce silencieusement → biais
+- factor non ordonné crée des variables dummy automatiquement (k-1 indicatrices)
+- factor mal ordonné donne une mauvaise baseline → coefficients inversés
+
+```{r}
+df2 <- data.frame(
+  niveau = factor(c("Junior", "Senior", "Manager", "Junior", "Senior"),
+                  levels = c("Junior", "Senior", "Manager")),  # ordre logique
+  salaire = c(30000, 50000, 75000, 32000, 52000)
+)
+# Un factor crée automatiquement des indicatrices
+df2$niveau <- factor(df2$niveau,
+                    levels = c("Junior", "Senior", "Manager"))
+lm(salaire ~ niveau, data = df2)
+# R génère : niveauSenior, niveauManager
+# Référence implicite = "Junior" (1er niveau)
+# ← Si l'ordre est mauvais, l'interprétation est fausse
+```
+
+*Pour une ACP*
+numeric homogène donne une matrice de corrélation valide → ACP fiable
+Types mixtes non traités entraine que cor() échoue → ACP impossible
+factor inclus brut génère une Erreur ou résultat incohérent
+
+```{r}
+df <- df2
+# Bonne pratique avant une ACP
+df_num <- df[, sapply(df, is.numeric)]   # 1. Isoler le numérique
+df_num <- na.omit(df_num)                # 2. Supprimer les NA
+df_scale <- scale(df_num)                # 3. Standardiser
+
+# ACP propre
+acp <- prcomp(df_scale, center = TRUE, scale. = TRUE)
+```
 

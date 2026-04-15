@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.4.8)  9 APR 2026 10:08
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.4.12)  15 APR 2026 23:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1180,40 +1180,7 @@ Package: titlesec 2025/01/04 v2.17 Sectioning titles
 \titlewidth=\dimen353
 \titlewidthlast=\dimen354
 \titlewidthfirst=\dimen355
-) (c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/background/background.sty
-Package: background 2014/03/04 v2.1 background material
-(c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty
-Package: xkeyval 2025/11/04 v2.10 package option processing (HA)
-(c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks58
-\XKV@tempa@toks=\toks59
-\XKV@tempb@toks=\toks60
-)
-\XKV@depth=\count406
-File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-)) (c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/everypage/everypage.sty
-Package: everypage 2020/10/17 R2.0b Hooks to run on every page
-
-Package everypage Warning: Functionality similar to this package has recently
-(everypage)                been implemented in LaTeX. This package is now in
-(everypage)                legacy status.
-(everypage)                Please, don't use it in new documents and packages.
-
-
-Package everypage Warning: You appear to be running a version of LaTeX
-(everypage)                providing the new functionality.
-(everypage)                Doing the best to deliver the original `everypage`
-(everypage)                interface on top of it. Strict equivalence is
-(everypage)                not possible, breakage may occur.
-(everypage)                If truly needed, Use `everypage-1x` to force the
-(everypage)                loading of an older code base.
-
-) (c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/afterpage.sty
-Package: afterpage 2023/07/04 v1.08 After-Page Package (DPC)
-\AP@output=\toks61
-\AP@partial=\box104
-\AP@footins=\box105
-)) (c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/pifont.sty
+) (c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/pifont.sty
 Package: pifont 2020/03/25 PSNFSS-v9.3 Pi font support (SPQR) 
 LaTeX Font Info:    Trying to load font information for U+pzd on input line 63.
 (c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/upzd.fd
@@ -1226,51 +1193,51 @@ File: upsy.fd 2001/06/04 font definitions for U/psy.
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
 (c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bkm-dvipdfm.def
 File: bkm-dvipdfm.def 2023-12-10 v1.31 bookmark driver for dvipdfm (HO)
-\BKM@id=\count407
+\BKM@id=\count406
 ))
 Package french3.ldf Info: Setting StandardItemizeEnv=true for
 (french3.ldf)             compatibility with enumitem package,
-(french3.ldf)             reported on input line 178.
+(french3.ldf)             reported on input line 180.
 Package french3.ldf Info: Setting StandardEnumerateEnv=true for
 (french3.ldf)             compatibility with enumitem package,
-(french3.ldf)             reported on input line 178.
-No file Traitement-TP1.aux.
+(french3.ldf)             reported on input line 180.
+(./Traitement-TP1.aux)
 \openout1 = `Traitement-TP1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 178.
-LaTeX Font Info:    ... okay on input line 178.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 178.
-LaTeX Font Info:    ... okay on input line 178.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 178.
-LaTeX Font Info:    ... okay on input line 178.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 178.
-LaTeX Font Info:    ... okay on input line 178.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 178.
-LaTeX Font Info:    ... okay on input line 178.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 178.
-LaTeX Font Info:    ... okay on input line 178.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 178.
-LaTeX Font Info:    ... okay on input line 178.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 178.
-LaTeX Font Info:    ... okay on input line 178.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 178.
-LaTeX Font Info:    ... okay on input line 178.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 178.
-LaTeX Font Info:    ... okay on input line 178.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 180.
+LaTeX Font Info:    ... okay on input line 180.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/ztmcm/m/n --> TU/ptm/m/n on input line 178.
+(Font)                  OT1/ztmcm/m/n --> TU/ptm/m/n on input line 180.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/ptm/m/it --> TU/ptm/m/it on input line 178.
+(Font)                  OT1/ptm/m/it --> TU/ptm/m/it on input line 180.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/ptm/bx/n --> TU/ptm/b/n on input line 178.
+(Font)                  OT1/ptm/bx/n --> TU/ptm/b/n on input line 180.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 178.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 180.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/b/n on input line 178.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/b/n on input line 180.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 178.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 180.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/b/n on input line 178.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/b/n on input line 180.
 
 Package fontspec Info: 
 (fontspec)             latinmodern-math scale = 1.044077660485944.
@@ -1297,11 +1264,11 @@ Package fontspec Info:
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
 (fontspec)             <->s*[1.044077660485944]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
 
-LaTeX Font Info:    Trying to load font information for T1+latinmodern-math.otf(0) on input line 178.
-LaTeX Font Info:    No file T1latinmodern-math.otf(0).fd. on input line 178.
+LaTeX Font Info:    Trying to load font information for T1+latinmodern-math.otf(0) on input line 180.
+LaTeX Font Info:    No file T1latinmodern-math.otf(0).fd. on input line 180.
 
 LaTeX Font Warning: Font shape `T1/latinmodern-math.otf(0)/m/n' undefined
-(Font)              using `T1/cmr/m/n' instead on input line 178.
+(Font)              using `T1/cmr/m/n' instead on input line 180.
 
 
 Package unicode-math Warning: The first font loaded by unicode-math must be an
@@ -1345,32 +1312,32 @@ Package fontspec Info:
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
 (fontspec)             <->s*[1.044077660485944]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
 
-LaTeX Font Info:    Trying to load font information for T1+latinmodern-math.otf(1) on input line 178.
-LaTeX Font Info:    No file T1latinmodern-math.otf(1).fd. on input line 178.
+LaTeX Font Info:    Trying to load font information for T1+latinmodern-math.otf(1) on input line 180.
+LaTeX Font Info:    No file T1latinmodern-math.otf(1).fd. on input line 180.
 
 LaTeX Font Warning: Font shape `T1/latinmodern-math.otf(1)/m/n' undefined
-(Font)              using `T1/cmr/m/n' instead on input line 178.
+(Font)              using `T1/cmr/m/n' instead on input line 180.
 
 LaTeX Font Info:    Encoding `OT1' has changed to `T1' for symbol font
-(Font)              `operators' in the math version `normal' on input line 178.
+(Font)              `operators' in the math version `normal' on input line 180.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/ztmcm/m/n --> T1/latinmodern-math.otf(1)/m/n on input line 178.
+(Font)                  OT1/ztmcm/m/n --> T1/latinmodern-math.otf(1)/m/n on input line 180.
 LaTeX Font Info:    Encoding `OT1' has changed to `T1' for symbol font
-(Font)              `operators' in the math version `bold' on input line 178.
+(Font)              `operators' in the math version `bold' on input line 180.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/ztmcm/m/n --> T1/latinmodern-math.otf(1)/b/n on input line 178.
+(Font)                  OT1/ztmcm/m/n --> T1/latinmodern-math.otf(1)/b/n on input line 180.
 Package microtype Info: Patching varwidth to enable character protrusion.
 \MT@vwid@leftmargin=\dimen356
 \MT@vwid@rightmargin=\dimen357
-LaTeX Info: Redefining \microtypecontext on input line 178.
-Package microtype Info: Applying patch `item' on input line 178.
-Package microtype Info: Applying patch `toc' on input line 178.
-Package microtype Info: Applying patch `eqnum' on input line 178.
+LaTeX Info: Redefining \microtypecontext on input line 180.
+Package microtype Info: Applying patch `item' on input line 180.
+Package microtype Info: Applying patch `toc' on input line 180.
+Package microtype Info: Applying patch `eqnum' on input line 180.
 
-Package microtype Warning: Unable to apply patch `footnote' on input line 178.
+Package microtype Warning: Unable to apply patch `footnote' on input line 180.
 
-Package microtype Info: Applying patch `verbatim' on input line 178.
-LaTeX Info: Redefining \microtypesetup on input line 178.
+Package microtype Info: Applying patch `verbatim' on input line 180.
+LaTeX Info: Redefining \microtypesetup on input line 180.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -1422,32 +1389,840 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: dvipdfm (xetex) on input line 98.
 ))
-Package hyperref Info: Link coloring OFF on input line 178.
+Package hyperref Info: Link coloring OFF on input line 180.
+\c@lstlisting=\count407
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 182.
+(c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/omlztmcm.fd
+File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
+)
+Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/12'
+(microtype)             (new value: 12.0pt) on input line 182.
+Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/9'
+(microtype)             (new value: 9.0pt) on input line 182.
+Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/7'
+(microtype)             (new value: 7.0pt) on input line 182.
+(c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+) (c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 182.
+(c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 182.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 182.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 182.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/12'
+(microtype)             (new value: 12.0pt) on input line 182.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/9'
+(microtype)             (new value: 9.0pt) on input line 182.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/7'
+(microtype)             (new value: 7.0pt) on input line 182.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/12'
+(microtype)             (new value: 12.0pt) on input line 182.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/9'
+(microtype)             (new value: 9.0pt) on input line 182.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/7'
+(microtype)             (new value: 7.0pt) on input line 182.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/12'
+(microtype)             (new value: 12.0pt) on input line 182.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/9'
+(microtype)             (new value: 9.0pt) on input line 182.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/7'
+(microtype)             (new value: 7.0pt) on input line 182.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/12'
+(microtype)             (new value: 12.0pt) on input line 182.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/9'
+(microtype)             (new value: 9.0pt) on input line 182.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/7'
+(microtype)             (new value: 7.0pt) on input line 182.
+(./Traitement-TP1.toc
+Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/10.95'
+(microtype)             (new value: 10.95pt) on input line 3.
+Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/8'
+(microtype)             (new value: 8.0pt) on input line 3.
+Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/6'
+(microtype)             (new value: 6.0pt) on input line 3.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/10.95'
+(microtype)             (new value: 10.95pt) on input line 3.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/8'
+(microtype)             (new value: 8.0pt) on input line 3.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/6'
+(microtype)             (new value: 6.0pt) on input line 3.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/10.95'
+(microtype)             (new value: 10.95pt) on input line 3.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/8'
+(microtype)             (new value: 8.0pt) on input line 3.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/6'
+(microtype)             (new value: 6.0pt) on input line 3.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/10.95'
+(microtype)             (new value: 10.95pt) on input line 3.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/8'
+(microtype)             (new value: 8.0pt) on input line 3.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/6'
+(microtype)             (new value: 6.0pt) on input line 3.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/10.95'
+(microtype)             (new value: 10.95pt) on input line 3.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/8'
+(microtype)             (new value: 8.0pt) on input line 3.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/6'
+(microtype)             (new value: 6.0pt) on input line 3.
+[1
 
-Package hyperref Warning: Rerun to get /PageLabels entry.
+])
+\tf@toc=\write5
+\openout5 = `Traitement-TP1.toc'.
 
-\c@lstlisting=\count408
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 198.
+[2]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 205.
 (c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 199.
-! You can't use `macro parameter character #' in horizontal mode.
-l.219 #
-       # [1] 2 2 4
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 206.
+[3] [4]
+Underfull \hbox (badness 2884) in paragraph at lines 277--277
+|[]\T1/ptm/b/n/12 Discuter ri-gou-reu-se-ment les consé-quences de
+ []
 
- 
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 302.
+(c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
+File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Overfull \hbox (250.04646pt too wide) in paragraph at lines 307--307
+[]\T1/lmtt/m/n/10.95 A B  qui est/sont dans x à la/les position (s)  2 4  n'est (ne sont) pas un / des nombre (s) 
+ []
+
+[5] [6] [7]
+Underfull \hbox (badness 1048) in paragraph at lines 499--504
+[]\T1/ptm/m/n/10.95 Elle peut être dan-ge-reuse dans le cas où nous avons des
+ []
+
+[8] [9]
+Missing character: There is no ↑ ("2191) in font ec-lmtti10!
+Missing character: There is no → ("2192) in font ec-lmtti10!
+Missing character: There is no ← ("2190) in font ec-lmtti10!
+Missing character: There is no ✓ ("2713) in font ec-lmtti10!
+Missing character: There is no ← ("2190) in font ec-lmtti10!
+Missing character: There is no ✗ ("2717) in font ec-lmtti10!
+Missing character: There is no ← ("2190) in font ec-lmtti10!
+Missing character: There is no ✓ ("2713) in font ec-lmtti10!
+Missing character: There is no ’ ("2019) in font ptmr8t!
+[10]
+Overfull \hbox (89.08192pt too wide) in paragraph at lines 674--674
+[]  \T1/lmtt/m/n/10.95 identifiant sexe filière moyenne_S1 moyenne_S2 statut_boursier 
+ []
+
+
+Overfull \hbox (89.08192pt too wide) in paragraph at lines 675--675
+[]\T1/lmtt/m/n/10.95 1         S01    M    ISEP         14         16            TRUE[] 
+ []
+
+
+Overfull \hbox (89.08192pt too wide) in paragraph at lines 676--676
+[]\T1/lmtt/m/n/10.95 2         S02    F     ISE         11         20           FALSE[] 
+ []
+
+
+Overfull \hbox (89.08192pt too wide) in paragraph at lines 677--677
+[]\T1/lmtt/m/n/10.95 3         S03    M      AS         12         NA            TRUE[] 
+ []
+
+
+Overfull \hbox (89.08192pt too wide) in paragraph at lines 678--678
+[]\T1/lmtt/m/n/10.95 4         S04    F    ISEP         NA         15           FALSE[] 
+ []
+
+
+Overfull \hbox (89.08192pt too wide) in paragraph at lines 679--679
+[]\T1/lmtt/m/n/10.95 5         S05    M     ISE         NA         13            TRUE[] 
+ []
+
+[11]
+Overfull \hbox (140.82053pt too wide) in paragraph at lines 719--719
+[]\T1/lmtt/m/n/10.95 [1] "identifiant"      "sexe"             "filière"          "moyenne_S1" 
+ []
+
+
+Overfull \hbox (175.31293pt too wide) in paragraph at lines 720--720
+[]\T1/lmtt/m/n/10.95 [5] "moyenne_S2"       "statut_boursier"  "region_d_origine" "moyenne_annuelle"[] 
+ []
+
+
+Underfull \hbox (badness 6236) in paragraph at lines 747--747
+\T1/ptm/b/n/12 va-leurs aber-rantes ; les va-leurs man-quantes
+ []
+
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no → ("2192) in font ec-lmtt10!
+Missing character: There is no → ("2192) in font ec-lmtt10!
+Missing character: There is no → ("2192) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ≥ ("2265) in font ec-lmtt10!
+Missing character: There is no ≥ ("2265) in font ec-lmtt10!
+Missing character: There is no ≥ ("2265) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ─ ("2500) in font ec-lmtti10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ✓ ("2713) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ✓ ("2713) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ✓ ("2713) in font ec-lmtt10!
+[12]
+Underfull \vbox (badness 10000) detected at line 884
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 884
+ []
+
+[13]
+Underfull \vbox (badness 10000) detected at line 884
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 884
+ []
+
+[14]
+Underfull \vbox (badness 10000) detected at line 884
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 884
+ []
+
+[15]
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ═ ("2550) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no → ("2192) in font ec-lmtt10!
+[16]
+Missing character: There is no → ("2192) in font ec-lmtt10!
+
+Overfull \hbox (48.84079pt too wide) in paragraph at lines 909--909
+[]   \T1/lmtt/m/n/10.95 'actif' pourrait être logical (contient seulement 0/1)[] 
+ []
+
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ✓ ("2713) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ─ ("2500) in font ec-lmtt10!
+Missing character: There is no ≥ ("2265) in font ec-lmtt10!
+Missing character: There is no ≥ ("2265) in font ec-lmtt10!
+Missing character: There is no ≥ ("2265) in font ec-lmtt10!
+Missing character: There is no → ("2192) in font ptmr8t!
+Missing character: There is no → ("2192) in font ptmr8t!
+[17]
+Missing character: There is no ← ("2190) in font ec-lmtti10!
+Missing character: There is no → ("2192) in font ptmr8t!
+Missing character: There is no → ("2192) in font ptmr8t!
+[18] (./Traitement-TP1.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-03-20>
+ ***********
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
 Here is how much of TeX's memory you used:
- 44309 strings out of 469995
- 891544 string characters out of 5473127
- 1425346 words of memory out of 5000000
- 72443 multiletter control sequences out of 15000+600000
- 643392 words of font info for 58 fonts, out of 8000000 for 9000
+ 44349 strings out of 469995
+ 894033 string characters out of 5473126
+ 1433317 words of memory out of 5000000
+ 72431 multiletter control sequences out of 15000+600000
+ 674681 words of font info for 134 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 90i,3n,113p,1203b,347s stack positions out of 10000i,1000n,20000p,200000b,200000s
-No pages of output.
+ 90i,7n,113p,1203b,619s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on Traitement-TP1.pdf (18 pages).
